@@ -3,6 +3,6 @@ $( document ).ready( function() {
 		onSelect : function( language ) {
 			$.qLabel.switchLanguage( language );
 		},
-		quickList: ['en', 'de', 'es', 'fr', 'ru', 'ja', 'ko']
+		quickList: ['en', 'de', 'es', 'fr', 'ru', 'ja', 'ko', 'sv']
 	} );
 } );
