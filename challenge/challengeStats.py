@@ -83,11 +83,11 @@ def makeTable(outinfo, entities):
         txt += '| %s || %r || %r\n' % (lang, len(e), (len(entities) - len(e)))
     txt += '|}\n\n'
 
-    # images and pronounciations
-    txt += '==Images and pronounciations==\n'
+    # images and pronunciations
+    txt += '==Images and pronunciations==\n'
     txt += '{| class="wikitable sortable"\n'
     txt += '|-\n'
-    txt += '! Q item !! # has image !! # pronounciations\n'
+    txt += '! Q item !! # has image !! # pronunciations\n'
     for e in entities:
         img = '{{no}}'
         pro = ''
