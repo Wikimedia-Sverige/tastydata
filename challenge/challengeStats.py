@@ -107,11 +107,20 @@ entities = json.load(f)
 f.close()
 outwikiPage = u'Wikidata:Menu_Challenge/statistics'
 
-# setUp with login
-wdApi = wikiApi.WikiDataApi.setUpApi(user=getpass(u'Username:'),
-                                     password=getpass(),
-                                     site='https://www.wikidata.org/w/api.php',
-                                     scriptidentify='TastyData/1.0')
+# setUp with login, load config.py if present otherwise request input
+site='https://www.wikidata.org/w/api.php'
+scriptidentify='TastyData/1.0'
+try:
+    import config
+    wdApi = wikiApi.WikiDataApi.setUpApi(user=config.username,
+                                         password=config.password,
+                                         site=site,
+                                         scriptidentify=scriptidentify)
+except ImportError:
+    wdApi = wikiApi.WikiDataApi.setUpApi(user=getpass(u'Username:'),
+                                         password=getpass(),
+                                         site=site,
+                                         scriptidentify=scriptidentify)
 
 # get all labels
 lDict = getLabels(entities)
