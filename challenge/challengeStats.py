@@ -8,6 +8,7 @@
 import WikiApi as wikiApi
 import wdq
 import json
+from getpass import getpass
 
 
 def getLabels(entities, dDict=None):
@@ -104,16 +105,13 @@ def makeTable(outinfo, entities):
 f = open('entities.json', 'r')
 entities = json.load(f)
 f.close()
-outjson = u'statistik.json'
-outwiki = u'statistik.wiki'
+outwikiPage = u'Wikidata:Menu_Challenge/statistics'
 
-# setUp without login
-wd_site = 'https://www.wikidata.org/w/api.php'
-user = 'TastyData'
-scriptidentify = 'TastyData/1.0'
-reqlimit = 50
-separator = 'w'
-wdApi = wikiApi.WikiDataApi(wd_site, user, scriptidentify)
+# setUp with login
+wdApi = wikiApi.WikiDataApi.setUpApi(user=getpass(u'Username:'),
+                                     password=getpass(),
+                                     site='https://www.wikidata.org/w/api.php',
+                                     scriptidentify='TastyData/1.0')
 
 # get all labels
 lDict = getLabels(entities)
@@ -128,7 +126,7 @@ for k, v in lDict.iteritems():
             allLang[lang] = [k, ]
 
 # claims
-wdqApi = wdq.WDQApi.setUpApi(user='Lokal_Profil')
+wdqApi = wdq.WDQApi.setUpApi(user='TastyData')
 p18claims = wdqApi.getIdsWithClaim(entities, 'P18')
 p443claims = wdqApi.getIdsWithClaim(entities, 'P443')
 
@@ -143,11 +141,11 @@ outinfo = {}
 outinfo['lables'] = allLang
 outinfo['images'] = p18claims
 outinfo['sounds'] = p443langs
-f = open(outjson, 'w')
-f.write(json.dumps(outinfo))
-f.close()
-f = open(outwiki, 'w')
-f.write(makeTable(outinfo, entities))
-f.close()
+wdApi.editText(outwikiPage,
+               makeTable(outinfo, entities),
+               u'Updated statistics',
+               minor=True,
+               bot=False,
+               userassert=None)
 print u'langs: %r, entities: %r' % (len(allLang.keys()), len(entities))
 print u'images: %r, sounds: %r' % (len(p18claims), len(p443claims))
