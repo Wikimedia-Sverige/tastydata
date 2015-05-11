@@ -82,8 +82,8 @@ def makeTable(outinfo, entities, ministats):
                                 ministats['200+'],
                                 ministats['done'])
     txt += u'In addition there are %r items with images and %r items with \
-             at least one pronunciation\n\n' % (ministats['images'],
-                                                ministats['sounds'])
+             at least one pronunciation.\n\n' % (ministats['images'],
+                                                 ministats['sounds'])
     txt += '__TOC__\n\n'
     # lables
     langs = sorted(outinfo['lables'].keys())  # ensure same order
@@ -163,8 +163,7 @@ if fromConf:
 f = open(infile, 'r')
 entities = json.load(f)
 f.close()
-# outwikiPage = u'Wikidata:Menu_Challenge/statistics'
-outwikiPage = u'User:André Costa (WMSE)/tastyData'
+outwikiPage = u'Wikidata:Menu_Challenge/statistics'
 
 # get all labels
 lDict = getLabels(entities)
