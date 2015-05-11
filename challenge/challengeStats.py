@@ -74,7 +74,7 @@ def makeTable(outinfo, entities, ministats):
     '''
     txt = ''
     txt += u'In total there are %r languages that have labels in the list. \
-             %r of them have more than 100 labels in there language. \
+             %r of them have more than 100 labels in their language. \
              %r have more than 200 labels in their language. \
              %r languages have all the labels - and will look perfect in \
              the menus!\n\n' % (ministats['total'],
