@@ -77,12 +77,15 @@ def makeTable(outinfo, entities, ministats):
              %r of them have more than 100 labels in their language. \
              %r have more than 200 labels in their language. \
              %r languages have all the labels - and will look perfect in \
-             the menus!\n\n' % (ministats['total'],
+             the menus!\n\n' % (ministats['totalLang'],
                                 ministats['100+'],
                                 ministats['200+'],
                                 ministats['done'])
-    txt += u'In addition there are %r items with images and %r items with \
-             at least one pronunciation.\n\n' % (ministats['images'],
+    txt += u'In total there are %r labels for the %r items. \
+             In addition there are %r items with images and %r items with \
+             at least one pronunciation.\n\n' % (ministats['totalLabel'],
+                                                 ministats['items'],
+                                                 ministats['images'],
                                                  ministats['sounds'])
     txt += '__TOC__\n\n'
     # lables
@@ -124,6 +127,7 @@ def makeMinistats(outinfo, ministats, total):
     plus100 = 0
     plus200 = 0
     done = 0
+    labels = 0
     for lang, entities in outinfo['lables'].iteritems():
         if len(entities) == total:
             done += 1
@@ -131,12 +135,14 @@ def makeMinistats(outinfo, ministats, total):
             plus200 += 1
         elif len(entities) >= 100:
             plus100 += 1
+        labels += len(entities)
 
     # add to dict
     ministats['done'] = done
     ministats['200+'] = plus200 + done
     ministats['100+'] = plus100 + plus200 + done
-    ministats['total'] = len(outinfo['lables'].keys())
+    ministats['totalLang'] = len(outinfo['lables'].keys())
+    ministats['totalLabel'] = labels
 
 # Check if running from config and set up Wikidata connection
 # load config.py if present otherwise request input
@@ -193,7 +199,9 @@ outinfo = {}
 outinfo['lables'] = allLang
 outinfo['images'] = p18claims
 outinfo['sounds'] = p443langs
-ministats = {'images': len(p18claims), 'sounds': len(p443claims)}
+ministats = {'images': len(p18claims),
+             'sounds': len(p443claims),
+             'items': len(entities)}
 makeMinistats(outinfo, ministats, len(entities))
 wdApi.editText(outwikiPage,
                makeTable(outinfo, entities, ministats),
@@ -201,4 +209,9 @@ wdApi.editText(outwikiPage,
                minor=True,
                bot=False,
                userassert=None)
-print u'langs: %r, entities: %r' % (len(allLang.keys()), len(entities))
+print u'langs: %r, labels: %r, images: %r, sounds: %r, entities: %r' % (
+      ministats['totalLang'],
+      ministats['totalLabel'],
+      ministats['images'],
+      ministats['sounds'],
+      ministats['items'])
