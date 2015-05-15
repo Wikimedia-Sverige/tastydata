@@ -11,10 +11,13 @@ import json
 from getpass import getpass
 
 
-def getLabels(entities, dDict=None, redirects=None):
+def getLabels(entities, dDict=None, redirects=None, lang=None):
     '''
     Given a list of entity ids this returns the known lables
     also, until T97928 is resolved, it returns a list of known redirects
+
+    if lang is given then instead of returning a list of languages
+    only that language, and its value is returned
     '''
     MAXID = 50  # max number of ids per call
     if dDict is None:
@@ -25,14 +28,16 @@ def getLabels(entities, dDict=None, redirects=None):
 
     # max ids per call
     if len(entities) > MAXID:
-        getLabels(entities[MAXID:], dDict, redirects)
+        getLabels(entities[MAXID:], dDict, redirects, lang)
         entities = entities[:MAXID]
 
     # single call
-    jsonr = wdApi.httpPOST("wbgetentities", [
-        ('props', 'labels'),
-        ('redirects', 'yes'),
-        ('ids', '|'.join(entities).encode('utf-8'))])
+    requestparams = [('props', 'labels'),
+                     ('redirects', 'yes'),
+                     ('ids', '|'.join(entities).encode('utf-8'))]
+    if lang is not None:
+        requestparams.append(('languages', lang.encode('utf-8')))
+    jsonr = wdApi.httpPOST("wbgetentities", requestparams)
 
     # deal with problems
     if not jsonr['success'] == 1:
@@ -41,8 +46,12 @@ def getLabels(entities, dDict=None, redirects=None):
     # all is good
     pages = jsonr['entities']  # a dict
     for k, v in pages.iteritems():
-        lang = v['labels'].keys()
-        dDict[k] = lang
+        if lang is None:
+            langs = v['labels'].keys()
+            dDict[k] = langs
+        else:
+            if lang in v['labels'].keys():
+                dDict[k] = v['labels'][lang]['value']
         # while T97928 remains unresolved
         if 'redirects' in v.keys():
             redirects[v['redirects']['from']] = v['redirects']['to']
@@ -80,7 +89,7 @@ def getClaimQualifier(entity, claim, qualifier):
     return qualValues
 
 
-def makeTable(outinfo, entities, redirects, ministats):
+def makeTable(outinfo, entities, redirects, langLabels, ministats):
     '''
     produces the desired wiki table
     '''
@@ -114,6 +123,11 @@ def makeTable(outinfo, entities, redirects, ministats):
 
     # images and pronunciations
     txt += '==Images and pronunciations==\n'
+    txt += 'To avoid the dreaded \'\'Lua error: not enough memory\'\' \
+            languages for pronunciations use their english lables if \
+            one is available, othewise their linked Q number. \
+            \'\'no lang\'\' indicates that a pronunciations statment \
+            is missing its {{P|P407}} value. \n'
     txt += '{| class="wikitable sortable"\n'
     txt += '|-\n'
     txt += '! Q item !! # has image !! # pronunciations\n'
@@ -126,8 +140,14 @@ def makeTable(outinfo, entities, redirects, ministats):
         if e in outinfo['images']:
             img = '{{yes}}'
         if e in outinfo['sounds']:
-            pro = '{{Q|%s}}' % '}}, {{Q|'.join(outinfo['sounds'][e])
+            pro = ''
+            for l in outinfo['sounds'][e]:
+                if l in langLabels.keys():
+                    pro += u'%s, ' % langLabels[l]
+                else:
+                    pro += u'{{Q|%s}}, ' % l
             pro = pro.replace('{{Q|}}', 'no lang')
+            pro = pro[:-2]  # trim trailing ', '
         txt += '|-\n'
         txt += '| {{Q|%s}} || %s || %s\n' % (e_orig, img, pro)
     txt += '|}\n\n'
@@ -234,6 +254,13 @@ for entity in p443claims:
     # P407 is the qualifier for language
     p443langs[entity] = getClaimQualifier(entity, 'P443', 'P407')
 
+# convert lang Q-numbers to text to get around Lua memory error
+langItems = []
+for e, vals in p443langs.iteritems():
+    langItems += vals
+langItems = list(set(langItems))  # remove duplicates
+langLabels_en, dummy = getLabels(langItems, lang='en')
+
 # output
 outinfo = {}
 outinfo['lables'] = allLang
@@ -248,6 +275,7 @@ wdApi.editText(outwikiPage,
                    .replace(u'{{{text}}}', makeTable(outinfo,
                                                      entities,
                                                      redirects,
+                                                     langLabels_en,
                                                      ministats)
                             ),
                u'Updated statistics',
