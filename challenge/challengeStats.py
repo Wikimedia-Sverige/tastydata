@@ -11,19 +11,27 @@ import json
 from getpass import getpass
 
 
-def getLabels(entities, dDict=None):
+def getLabels(entities, dDict=None, redirects=None):
+    '''
+    Given a list of entity ids this returns the known lables
+    also, until T97928 is resolved, it returns a list of known redirects
+    '''
     MAXID = 50  # max number of ids per call
     if dDict is None:
         dDict = {}
+    # while T97928 remains unresolved
+    if redirects is None:
+        redirects = {}
 
     # max ids per call
     if len(entities) > MAXID:
-        getLabels(entities[MAXID:], dDict)
+        getLabels(entities[MAXID:], dDict, redirects)
         entities = entities[:MAXID]
 
     # single call
     jsonr = wdApi.httpPOST("wbgetentities", [
         ('props', 'labels'),
+        ('redirects', 'yes'),
         ('ids', '|'.join(entities).encode('utf-8'))])
 
     # deal with problems
@@ -35,8 +43,11 @@ def getLabels(entities, dDict=None):
     for k, v in pages.iteritems():
         lang = v['labels'].keys()
         dDict[k] = lang
+        # while T97928 remains unresolved
+        if 'redirects' in v.keys():
+            redirects[v['redirects']['from']] = v['redirects']['to']
 
-    return dDict
+    return dDict, redirects
 
 
 def getClaimQualifier(entity, claim, qualifier):
@@ -45,6 +56,7 @@ def getClaimQualifier(entity, claim, qualifier):
     the value of that qualifier (or all in case of several claims
     Requires the value to be a wikibase-entity
     '''
+    # cannot resolve redirects, per T97928
     jsonr = wdApi.httpPOST("wbgetclaims", [
         ('entity', entity.encode('utf-8')),
         ('property', claim.encode('utf-8'))])
@@ -68,7 +80,7 @@ def getClaimQualifier(entity, claim, qualifier):
     return qualValues
 
 
-def makeTable(outinfo, entities, ministats):
+def makeTable(outinfo, entities, redirects, ministats):
     '''
     produces the desired wiki table
     '''
@@ -106,6 +118,9 @@ def makeTable(outinfo, entities, ministats):
     txt += '|-\n'
     txt += '! Q item !! # has image !! # pronunciations\n'
     for e in entities:
+        e_orig = e
+        if e in redirects.keys():
+            e = redirects[e]
         img = '{{no}}'
         pro = ''
         if e in outinfo['images']:
@@ -114,7 +129,7 @@ def makeTable(outinfo, entities, ministats):
             pro = '{{Q|%s}}' % '}}, {{Q|'.join(outinfo['sounds'][e])
             pro = pro.replace('{{Q|}}', 'no lang')
         txt += '|-\n'
-        txt += '| {{Q|%s}} || %s || %s\n' % (e, img, pro)
+        txt += '| {{Q|%s}} || %s || %s\n' % (e_orig, img, pro)
     txt += '|}\n\n'
 
     return txt
@@ -144,6 +159,11 @@ def makeMinistats(outinfo, ministats, total):
     ministats['totalLang'] = len(outinfo['lables'].keys())
     ministats['totalLabel'] = labels
 
+
+def raw_encoded_input(txt):
+    return raw_input(txt).decode(sys.stdin.encoding or
+                                 locale.getpreferredencoding(True))
+
 # Check if running from config and set up Wikidata connection
 # load config.py if present otherwise request input
 site = 'https://www.wikidata.org/w/api.php'
@@ -157,7 +177,11 @@ try:
                                          site=site,
                                          scriptidentify=scriptidentify)
 except ImportError:
-    wdApi = wikiApi.WikiDataApi.setUpApi(user=getpass(u'Username:'),
+    # needed for input_raw
+    import sys
+    import locale
+    user = raw_encoded_input('Username: ')
+    wdApi = wikiApi.WikiDataApi.setUpApi(user=user,
                                          password=getpass(),
                                          site=site,
                                          scriptidentify=scriptidentify)
@@ -169,10 +193,15 @@ if fromConf:
 f = open(infile, 'r')
 entities = json.load(f)
 f.close()
-outwikiPage = u'Wikidata:Menu_Challenge/statistics'
+
+# output page
+if fromConf:
+    outwikiPage = config.path
+else:
+    outwikiPage = raw_encoded_input('Wikidata page: ')
 
 # get all labels
-lDict = getLabels(entities)
+lDict, redirects = getLabels(entities)
 
 # invert
 allLang = {}
@@ -183,10 +212,16 @@ for k, v in lDict.iteritems():
         else:
             allLang[lang] = [k, ]
 
+# deal with redirects until T97928 is resolved (and implemented in wdq)
+reEntities = entities[:]  # clone
+for r_from, r_to in redirects.iteritems():
+    reEntities.remove(r_from)
+    reEntities.append(r_to)
+
 # claims
 wdqApi = wdq.WDQApi.setUpApi(user='TastyData')
-p18claims = wdqApi.getIdsWithClaim(entities, 'P18')
-p443claims = wdqApi.getIdsWithClaim(entities, 'P443')
+p18claims = wdqApi.getIdsWithClaim(reEntities, 'P18')
+p443claims = wdqApi.getIdsWithClaim(reEntities, 'P443')
 
 # process P443
 p443langs = {}
@@ -204,7 +239,7 @@ ministats = {'images': len(p18claims),
              'items': len(entities)}
 makeMinistats(outinfo, ministats, len(entities))
 wdApi.editText(outwikiPage,
-               makeTable(outinfo, entities, ministats),
+               makeTable(outinfo, entities, redirects, ministats),
                u'Updated statistics',
                minor=True,
                bot=False,

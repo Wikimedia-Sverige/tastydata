@@ -7,4 +7,7 @@ copy to config.py and fill in the details
 
 username = u''
 password = u''
-path = u''  # path from home directory to directory containing entities.json
+# path from home directory to directory containing entities.json
+path = u''
+# page on Wikidata where page should be written to
+outputPage = u''
