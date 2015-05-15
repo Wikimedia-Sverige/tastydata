@@ -1,0 +1,99 @@
+{| style="width:100%; padding:0; margin:0; border:0; border-spacing:0;"
+| style="height:100%; width:75%; margin:0; padding:0; vertical-align:top; -moz-box-shadow: 5px 0px 5px #ccc; -webkit-box-shadow: 5px 0px 5px #ccc; box-shadow: 5px 0px 5px #ccc;" |
+{| style="height:100%; width:100%; background:transparent; padding:0 10px 0 0; margin:0; border:0; border-spacing:0;"
+| style="font:32px/1.5 Gill Sans MT, GillSansSA, Calibri, sans-serif; color:#4a4a4a; padding:5px 0; -moz-box-shadow: 0px 5px 5px -6px #ccc; -webkit-box-shadow: 0px 5px 5px -6px #ccc; box-shadow: 0px 5px 5px -6px #ccc; vertical-align:middle;" | <span style="float:right;padding-right:20px;"> 
+'''Menu Challenge'''</span><br /><span style="float: right; color: #666; font-size: 50%;padding-right:20px;">
+May 8 - May 27, 2015</span>
+|-
+| style="padding:10px 0; font-family: sans-serif; font-size: 15px; vertical-align:top;" |
+<span style="font-size:18px;">'''{{{title}}}'''</span>
+
+{{{text}}}
+
+|}
+| style="height:100%; margin:0; width:25%; background:#f6f6f6; padding:10px 20px; -moz-border-radius:0 10px 10px 0; -webkit-border-radius:0 10px 10px 0; border-radius:0 10px 10px 0; -moz-box-shadow: 0px 0px 5px #ccc; -webkit-box-shadow: 0px 0px 5px #ccc; box-shadow: 0px 0px 5px #ccc; vertical-align:top;" |
+<div style="padding-bottom:10px; margin-bottom:15px; -moz-box-shadow: 0px 5px 5px -6px #A7D7F9; -webkit-box-shadow: 0px 5px 5px -6px #A7D7F9; box-shadow: 0px 5px 5px -6px #A7D7F9;">[[File:Wikidata tastydata.svg|center|300px|link=Wikidata:Menu Challenge]]</div>
+{| style="background:none; width:100%; border:0; padding:0; margin:0; font-family:Georgia, serif;"
+| style="-moz-box-shadow: 0px 5px 5px -6px #ccc; -webkit-box-shadow: 0px 5px 5px -6px #A7D7F9; box-shadow: 0px 5px 5px -6px #ccc; font-size: 18px" |
+{|
+|-
+|width="250"|'''[[Wikidata:Menu Challenge|Contest details]]'''
+|[[File:Gnome-emblem-photos.svg|60px|right|link=|alt=Wikidata:Menu Challenge]]
+|}
+|-
+| style="-moz-box-shadow: 0px 5px 5px -6px #ccc; -webkit-box-shadow: 0px 5px 5px -6px #ccc; box-shadow: 0px 5px 5px -6px #ccc" |
+|-
+| style="-moz-box-shadow: 0px 5px 5px -6px #ccc; -webkit-box-shadow: 0px 5px 5px -6px #ccc; box-shadow: 0px 5px 5px -6px #ccc; font-size: 18px" |
+{|
+{|
+|-
+|width="250"|'''[[Wikidata:Menu Challenge/background|Background]]'''
+|[[File:Wikidata-logo.svg|60px|right|link=|alt=Wikidata:Menu Challenge]]
+|}
+|-
+| style="-moz-box-shadow: 0px 5px 5px -6px #ccc; -webkit-box-shadow: 0px 5px 5px -6px #ccc; box-shadow: 0px 5px 5px -6px #ccc" |
+|-
+| style="-moz-box-shadow: 0px 5px 5px -6px #ccc; -webkit-box-shadow: 0px 5px 5px -6px #ccc; box-shadow: 0px 5px 5px -6px #ccc; font-size: 18px" |
+{|
+|-
+|width="250"|'''[[Wikidata:Menu Challenge/prizes|Prizes]]'''
+|[[File:Simple gold cup.svg|60px|right|link=|alt=]]
+|}
+|-
+| style="-moz-box-shadow: 0px 5px 5px -6px #ccc; -webkit-box-shadow: 0px 5px 5px -6px #ccc; box-shadow: 0px 5px 5px -6px #ccc" |
+|-
+| style="-moz-box-shadow: 0px 5px 5px -6px #ccc; -webkit-box-shadow: 0px 5px 5px -6px #ccc; box-shadow: 0px 5px 5px -6px #ccc; font-size: 18px" |
+{|
+|-
+|width="250"|'''[[Wikidata:Menu Challenge/list|Items in the Challenge]]'''
+|[[File:Erioll world 2.svg|60px|right|link= |alt=]]
+|}
+|-
+| style="-moz-box-shadow: 0px 5px 5px -6px #ccc; -webkit-box-shadow: 0px 5px 5px -6px #ccc; box-shadow: 0px 5px 5px -6px #ccc" |
+|-
+| style="-moz-box-shadow: 0px 5px 5px -6px #ccc; -webkit-box-shadow: 0px 5px 5px -6px #ccc; box-shadow: 0px 5px 5px -6px #ccc; font-size: 18px" |
+{|
+|-
+|width="250"|'''[[Wikidata:Menu Challenge/participants|Participants]]'''
+|[[File:Nuvola apps kuser.svg|60px|right|link=|alt=Participants]]
+|}
+|-
+| style="-moz-box-shadow: 0px 5px 5px -6px #ccc; -webkit-box-shadow: 0px 5px 5px -6px #ccc; box-shadow: 0px 5px 5px -6px #ccc" |
+|-
+| style="-moz-box-shadow: 0px 5px 5px -6px #ccc; -webkit-box-shadow: 0px 5px 5px -6px #ccc; box-shadow: 0px 5px 5px -6px #ccc; font-size: 18px" |
+|-
+| style="-moz-box-shadow: 0px 5px 5px -6px #ccc; -webkit-box-shadow: 0px 5px 5px -6px #ccc; box-shadow: 0px 5px 5px -6px #ccc; font-size: 18px" |
+{|
+|-
+|width="250"|'''[[Wikidata:Menu Challenge/help|Help Desk]]'''
+|[[File:Lifebelt and man icon.svg|right|60px|link=|alt=If you have any questions about this writing challenge, please add them to our talk page]]
+|}
+|-
+| style="-moz-box-shadow: 0px 5px 5px -6px #ccc; -webkit-box-shadow: 0px 5px 5px -6px #ccc; box-shadow: 0px 5px 5px -6px #ccc" |
+|-
+| style="-moz-box-shadow: 0px 5px 5px -6px #ccc; -webkit-box-shadow: 0px 5px 5px -6px #ccc; box-shadow: 0px 5px 5px -6px #ccc; font-size: 18px" |
+|-
+| style="-moz-box-shadow: 0px 5px 5px -6px #ccc; -webkit-box-shadow: 0px 5px 5px -6px #ccc; box-shadow: 0px 5px 5px -6px #ccc; font-size: 18px" |
+{|
+|-
+|width="250"|'''[[Wikidata:Menu Challenge/statistics|Statistics]]'''
+|[[File:Nuvola apps kmplot.svg|right|60px|link=|alt=See the stats of the participating items.]]
+|}
+|-
+| style="-moz-box-shadow: 0px 5px 5px -6px #ccc; -webkit-box-shadow: 0px 5px 5px -6px #ccc; box-shadow: 0px 5px 5px -6px #ccc; font-size: 18px" |
+|-
+| style="-moz-box-shadow: 0px 5px 5px -6px #ccc; -webkit-box-shadow: 0px 5px 5px -6px #ccc; box-shadow: 0px 5px 5px -6px #ccc; font-size: 18px" |
+|-
+| style="-moz-box-shadow: 0px 5px 5px -6px #ccc; -webkit-box-shadow: 0px 5px 5px -6px #ccc; box-shadow: 0px 5px 5px -6px #ccc; font-size: 18px;" |
+|-
+| style="-moz-box-shadow: 0px 5px 5px -6px #ccc; -webkit-box-shadow: 0px 5px 5px -6px #ccc; box-shadow: 0px 5px 5px -6px #ccc" |
+|-
+| style="-moz-box-shadow: 0px 5px 5px -6px #ccc; -webkit-box-shadow: 0px 5px 5px -6px #ccc; box-shadow: 0px 5px 5px -6px #ccc; font-size: 18px" |
+|-
+| style="-moz-box-shadow: 0px 5px 5px -6px #ccc; -webkit-box-shadow: 0px 5px 5px -6px #ccc; box-shadow: 0px 5px 5px -6px #ccc; font-size: 18px" |
+|-
+{|
+|}
+|}
+
+[[Category:Menu Challenge]]

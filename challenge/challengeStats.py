@@ -187,11 +187,16 @@ except ImportError:
                                          scriptidentify=scriptidentify)
 
 # input params
-infile = u'entities.json'
+entities_file = u'entities.json'
+page_file = u'page.txt'
 if fromConf:
-    infile = u'%s%s' % (config.path, infile)
-f = open(infile, 'r')
+    entities_file = u'%s%s' % (config.path, entities_file)
+    page_file = u'%s%s' % (config.path, page_file)
+f = open(entities_file, 'r')
 entities = json.load(f)
+f.close()
+f = open(page_file, 'r')
+page = f.read()
 f.close()
 
 # output page
@@ -239,7 +244,12 @@ ministats = {'images': len(p18claims),
              'items': len(entities)}
 makeMinistats(outinfo, ministats, len(entities))
 wdApi.editText(outwikiPage,
-               makeTable(outinfo, entities, redirects, ministats),
+               page.replace(u'{{{title}}}', u'Current statistics')
+                   .replace(u'{{{text}}}', makeTable(outinfo,
+                                                     entities,
+                                                     redirects,
+                                                     ministats)
+                            ),
                u'Updated statistics',
                minor=True,
                bot=False,
