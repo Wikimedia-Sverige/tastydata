@@ -221,7 +221,7 @@ f.close()
 
 # output page
 if fromConf:
-    outwikiPage = config.outwikiPage
+    outwikiPage = config.outputPage
 else:
     outwikiPage = raw_encoded_input('Wikidata page: ')
 
