@@ -126,7 +126,7 @@ def makeTable(outinfo, entities, redirects, langLabels, ministats):
     txt += 'To avoid the dreaded \'\'Lua error: not enough memory\'\' \
             languages for pronunciations use their english lables if \
             one is available, othewise their linked Q number. \
-            \'\'no lang\'\' indicates that a pronunciations statment \
+            \'\'\'no lang\'\'\' indicates that a pronunciations statment \
             is missing its {{P|P407}} value. \n'
     txt += '{| class="wikitable sortable"\n'
     txt += '|-\n'
@@ -146,7 +146,7 @@ def makeTable(outinfo, entities, redirects, langLabels, ministats):
                     pro += u'%s, ' % langLabels[l]
                 else:
                     pro += u'{{Q|%s}}, ' % l
-            pro = pro.replace('{{Q|}}', 'no lang')
+            pro = pro.replace('{{Q|}}', "'''no lang'''")
             pro = pro[:-2]  # trim trailing ', '
         txt += '|-\n'
         txt += '| {{Q|%s}} || %s || %s\n' % (e_orig, img, pro)
@@ -259,6 +259,8 @@ langItems = []
 for e, vals in p443langs.iteritems():
     langItems += vals
 langItems = list(set(langItems))  # remove duplicates
+if '' in langItems:  # these are dealt with manually
+    langItems.remove('')
 langLabels_en, dummy = getLabels(langItems, lang='en')
 
 # output
