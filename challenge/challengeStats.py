@@ -93,6 +93,7 @@ def makeTable(outinfo, entities, redirects, langLabels, ministats):
     '''
     produces the desired wiki table
     '''
+    HITLISTNO = 20
     txt = ''
     txt += u'In total there are %r languages that have labels in the list. \
              %r of them have more than 100 labels in their language. \
@@ -111,14 +112,18 @@ def makeTable(outinfo, entities, redirects, langLabels, ministats):
     txt += '__TOC__\n\n'
     # lables
     langs = sorted(outinfo['lables'].keys())  # ensure same order
+    hitlist = {}
     txt += '==Labels==\n'
     txt += '{| class="wikitable sortable"\n'
     txt += '|-\n'
     txt += '! Language code !! # done !! # left\n'
     for lang in langs:
         e = outinfo['lables'][lang]
+        numDiff = (len(entities) - len(e))
         txt += '|-\n'
-        txt += '| %s || %r || %r\n' % (lang, len(e), (len(entities) - len(e)))
+        txt += '| %s || %r || %r\n' % (lang, len(e), numDiff)
+        if numDiff <= HITLISTNO and numDiff > 0:
+            hitlist[lang] = list_diff(entities, e)
     txt += '|}\n\n'
 
     # images and pronunciations
@@ -152,6 +157,17 @@ def makeTable(outinfo, entities, redirects, langLabels, ministats):
         txt += '| {{Q|%s}} || %s || %s\n' % (e_orig, img, pro)
     txt += '|}\n\n'
 
+    # make itemlists for languages with less than X items
+    if len(hitlist) == 0:
+        return txt
+    txt += '==Hitlists==\n'
+    txt += 'To make it easier to complete list the last missing \
+            Q-numbers are shown below for languages with less than %r\
+            lables to go. \n\n' % HITLISTNO
+    for l, e in hitlist.iteritems():
+        txt += '===%s===\n' % l
+        txt += '{{Q|%s}}\n\n' % '}}, {{Q|'.join(e)
+
     return txt
 
 
@@ -181,8 +197,15 @@ def makeMinistats(outinfo, ministats, total):
 
 
 def raw_encoded_input(txt):
+    '''query for input and deal with the encoding, whatever it is'''
     return raw_input(txt).decode(sys.stdin.encoding or
                                  locale.getpreferredencoding(True))
+
+
+def list_diff(a, b):
+    '''subtract list 2 from list 1'''
+    b = set(b)
+    return [aa for aa in a if aa not in b]
 
 # Check if running from config and set up Wikidata connection
 # load config.py if present otherwise request input
