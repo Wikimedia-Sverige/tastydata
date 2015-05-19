@@ -120,10 +120,13 @@ def makeTable(outinfo, entities, redirects, langLabels, ministats):
     for lang in langs:
         e = outinfo['lables'][lang]
         numDiff = (len(entities) - len(e))
-        txt += '|-\n'
-        txt += '| %s || %r || %r\n' % (lang, len(e), numDiff)
         if numDiff <= HITLISTNO and numDiff > 0:
             hitlist[lang] = list_diff(entities, e)
+            numDiff_s = '[[#%s|%r]]' % (lang, numDiff)
+        else:
+            numDiff_s = '%r' % numDiff
+        txt += '|-\n'
+        txt += '| %s || %r || %s\n' % (lang, len(e), numDiff_s)
     txt += '|}\n\n'
 
     # images and pronunciations
