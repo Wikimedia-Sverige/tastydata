@@ -263,7 +263,7 @@ for k, v in lDict.iteritems():
         else:
             allLang[lang] = [k, ]
 
-# deal with redirects until T97928 is resolved (and implemented in wdq)
+# deal with redirects until T100703 is resolved (and implemented in wdq)
 reEntities = entities[:]  # clone
 for r_from, r_to in redirects.iteritems():
     reEntities.remove(r_from)
