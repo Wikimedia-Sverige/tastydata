@@ -1,5 +1,6 @@
 var langCode = 'sv';
-
+var dataContent = '';
+var popped = false;
 $( document ).ready( function() {
 	//set language by parameter
 	var uselang = getURLParameter('uselang');
@@ -21,32 +22,36 @@ $( document ).ready( function() {
 	    'fr' : 'Q150'
 	};
 
-	//trigger baloon on clicking any qlabel
-	//would be much nicer to use jquery.mobile popup but it's unclear
-	//how to have popup trigger lookup with right Q-val
-	$.balloon.defaults.classname = "my-balloon";
-	$('.qlabel').on("click", function() {
-	    if($(this).hasClass('selected')) {
-		$(this).hideBalloon();
-		$(this).removeClass('selected');
-	    } else {
-		$(this).addClass('selected');
-		entity = $(this).attr('its-ta-ident-ref').split('/entity/')[1];
-		$(this).showBalloon({
-		    position: null,
-		    contents: 'This has qNo ' +
-			      entity +
-			      ' <div class="property-P18" ></div>' +
-			      ' <div class="property-P443" ></div>'
-		});
-		getClaims( entity, 'P18', null, null );
-		getClaims( entity, 'P443', 'P407', langQ[langCode] );
+	//trigger lookup on popover event
+	$("[data-toggle='popover']").on('click', function(){
+	    if ( popped ) {
+		$(this).popover('toggle');
+		popped = false;
+		return false;  // should prevent kill trigger?
 	    }
-	    // close also if you click the balloon (closes them all though)
-	    $('.my-balloon').on("click", function() {
-		$('.selected').hideBalloon();
-		$('.selected').removeClass('selected');
-	    });
+	    else {
+		console.log(dataContent);
+		var $triggerElement = $(this);
+		var entity = $(this).children().attr('its-ta-ident-ref').split('/entity/')[1];
+		dataContent = 'This has qNo ' + entity + 'Image: <property-P18>, Sound: <property-P443>';
+		var jqxhrP18 = getClaims( entity, 'P18', null, null );
+		var jqxhrP443 = getClaims( entity, 'P443', 'P407', langQ[langCode] );
+    
+		$.when(jqxhrP18, jqxhrP443).done(function() {
+		    console.log(dataContent);
+		    console.log($triggerElement.attr('data-content'));
+		    $triggerElement.attr('data-content', dataContent);
+		    popped = true;
+		    $triggerElement.popover('toggle');
+		});
+	    }
+	});
+	// Kill also if you clicked anywhere else
+	$(document).on('click', function(){
+	    if ( popped ) {
+		$("[data-toggle='popover']").popover('destroy');
+		popped = false;
+	    }
 	});
 } );
 
@@ -64,13 +69,17 @@ function getClaims( entity, property, qualifier, qualifierValue ) {
 	property: property,
 	format: 'json'
     }, function(data) {
-	// TODO handle errors and exceptions
+	if (typeof data.claims[property] === "undefined") {
+	    // No hits for that property
+	    return false;
+	}
 	$.each(data.claims[property], function(index, claim) {
 	    if ( qualifier === null ){
 		setClaim(property, claim.mainsnak.datavalue.value);
 		return false;
 	    }
-	    else if ( qualifierValue === null ){  //no language match at all
+	    else if ( qualifierValue === null || typeof qualifierValue === "undefined" ){
+		// no language match at all
 		return false;
 	    }
 	    else if ( claim.qualifiers && qualifier in claim.qualifiers ) {
@@ -89,7 +98,7 @@ function getClaims( entity, property, qualifier, qualifierValue ) {
 //sets the value of a given property in a popup
 function setClaim(property, value) {
     console.log(property + ', ' + value);
-    $('.property-'+property).text(value);
+    dataContent = dataContent.replace('<property-'+property+'>',value);
 }
 
 //all of the needed language changes
@@ -99,12 +108,12 @@ function switchLanguage( language ) {
     console.log( 'Selected: ' + language + ' (' +
 				    $.uls.data.getDir(language) +
 			     ')' );
-    $( '.content' ).css( 'direction', $.uls.data.getDir( language ) );
+    $( '.row' ).css( 'direction', $.uls.data.getDir( language ) );
     if ( $.uls.data.getDir( language ) == 'rtl' ) {
-	    $( '.content' ).css( 'text-align', 'right' );
+	    $( '.row' ).css( 'text-align', 'right' );
     }
     else {
-	    $( '.content' ).css( 'text-align', 'left' );
+	    $( '.row' ).css( 'text-align', 'left' );
     }
 }
 
