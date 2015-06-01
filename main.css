@@ -1,0 +1,171 @@
+/* Responsivity based on screen width */
+@media only screen and (max-width:767px){
+  body {
+    font-size: 11px;
+  }
+}
+@media only screen and (min-width:768px){
+  body {
+    font-size: 12px;
+  }
+  .flow-text {
+   -webkit-column-count: 2;
+      -moz-column-count: 2;
+           column-count: 2;
+
+   -webkit-column-gap: 2em;
+      -moz-column-gap: 2em;
+           column-gap: 2em;
+  }
+}
+@media only screen and (min-width:992px){
+  body {
+    font-size: 13px;
+  }
+}
+@media only screen and (min-width:1200px){
+  body {
+    font-size: 14px;
+  }
+}
+
+*{
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    overflow: hidden;
+    font-family: "Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+    height: 500px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+ul {
+    list-style: none;
+}
+
+ul p {
+    margin: 0 0 0 0;
+}
+
+/* Keeps list items together when breaking between columns */
+li {
+    page-break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+}
+
+.header {
+    padding: 1.5%;
+    margin-bottom: 0.5%;
+}
+
+.restaurant-name {
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 2.8em;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* NEEDS TO BE FIXED */
+.menu {
+    overflow: hidden;
+    /* position: absolute; */
+    padding: 2%;
+    margin-right: 8%;
+    margin-left: 8%;
+    margin-top: 3%;
+    margin-bottom: 10%;
+    max-height: 65%;
+    color: white;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+}
+
+.dish-category {
+    font-size: 1.5em;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.dish {
+    font-size: 1.4em;
+    text-transform: capitalize;
+}
+
+.price {
+    text-transform: capitalize;
+    float: right;
+    /*   Clears float so it doesn't mess up the alignment of the rest */
+    clear: both;
+}
+
+.ingredient {
+    font-size: 1.1em;
+    text-transform: capitalize;
+    padding-bottom: 1em;
+}
+
+.popover {
+    font-family: inherit;
+    border: 0;
+}
+
+.popover .arrow {
+    border: 0;
+}
+
+.popover-title {
+    color: black;
+    font-size: 1.1em;
+}
+.popover-content {
+    color: black;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    padding-left: 1%;
+    padding-right: 1%;
+    z-index: -1;
+}
+
+.btn:focus,
+.btn:active,
+.btn.active,
+.btn:active:focus {
+    outline: 0;
+}
+
+.btn-primary {
+    padding: 5px 11px;
+    border-color: #36cdfe;
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: .9em;
+    font-weight: 700;
+    color: #fff;
+    background-color: #36cdfe;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active {
+    border-color: #03c1fe;
+    color: #fff;
+    background-color: #01baf6;
+}
+
+mark {
+    color: white;
+}

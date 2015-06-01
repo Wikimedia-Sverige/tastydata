@@ -1,0 +1,39 @@
+[
+    {
+        "name": "Restaurant1",
+        "bg_img": "Foo.jpg",
+        "colour": "#fed136",
+        "active_colour": "#fec503",
+        "bg_credit": "<a href=\"https://commons.wikimedia.org/wiki/User:ArildV\">Arild Vågen</a>",
+        "bg_license": "<a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.sv\" rel=\"license\">CC BY-SA 3.0</a>",
+        "dishes": [
+            {
+                "name": "Dish 1",
+                "cmt" : "eko",
+                "price": "20",
+                "ingredients" : [
+                    {
+                        "name": "ingredient1",
+                        "cmt" : "giftig"
+                    },
+                    {
+                        "name": "ingredient2"
+                    }
+                ]
+            },
+            {
+                "name": "Dish 2",
+                "price": "25",
+                "ingredients" : [
+                    {
+                        "name": "ingredient3"
+                    },
+                    {
+                        "name": "ingredient4",
+                        "cmt" : "äcklig"
+                    }
+                ]
+            }
+        ]
+    }
+]
