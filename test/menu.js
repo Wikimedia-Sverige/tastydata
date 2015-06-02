@@ -56,6 +56,7 @@ $( document ).ready( function() {
 	$('body').on('click', function(event){
 	    console.log($(event.target));
 	    console.log('anywhere-click');
+	    console.log($(event.target).is('img.popoverImg'));
 	    if ( popped ) {
 		if ( !$(event.target).is('img.popoverImg') ) {
 		    $("[data-toggle='popover']").popover('destroy');
