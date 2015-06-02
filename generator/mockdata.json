@@ -10,7 +10,7 @@
             {
                 "name": "Dish 1",
                 "cmt" : "eko",
-                "price": "20",
+                "price": "20 kr",
                 "ingredients" : [
                     {
                         "name": "ingredient1",
@@ -23,7 +23,7 @@
             },
             {
                 "name": "Dish 2",
-                "price": "25",
+                "price": "25 kr",
                 "ingredients" : [
                     {
                         "name": "ingredient3"
