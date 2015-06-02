@@ -26,11 +26,6 @@ $( document ).ready( function() {
 
 	//trigger lookup on popover event
 	//and close again if clicking anywhere except images inside the popup
-	$(".popoverImg").on('click', function(event){
-	    console.log($(event.target));
-	    console.log('popoverImg-click');
-	    return false;  // should prevent other kill triggers?
-	});
 	$("[data-toggle='popover']").on('click', function(event){
 	    console.log($(event.target));
 	    event.stopPropagation();
@@ -62,12 +57,18 @@ $( document ).ready( function() {
 	    console.log($(event.target));
 	    console.log('anywhere-click');
 	    if ( popped ) {
-		if ( !$(event.target).is('.popoverImg') ) {
+		if ( !$(event.target).is('img.popoverImg') ) {
 		    $("[data-toggle='popover']").popover('destroy');
 		    popped = false;
 		    console.log('anywhere-click-close');
 		}
 	    }
+	});
+	// but not if you click on an image insied the popover
+	$(".popoverImg").on('click', function(event){
+	    console.log($(event.target));
+	    console.log('popoverImg-click');
+	    return false;  // should prevent other kill triggers?
 	});
 } );
 
@@ -133,7 +134,7 @@ function setClaim(property, value) {
 	clicksound = createsoundbite(contentUrl);
 	dataContent = dataContent.replace(
 	    '<property-' + property + '>',
-	    '<a href="#current" onclick="clicksound.playclip()">' +
+	    '<a href="#" onclick="clicksound.playclip()">' +
 	        '<img class="popoverImg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Gnome-mime-sound-openclipart.svg/100px-Gnome-mime-sound-openclipart.svg.png">' +
 	    '</a>' +
 	    '<a href="' + descrUrl + '">' +
