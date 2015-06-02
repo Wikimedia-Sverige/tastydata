@@ -2,6 +2,8 @@ var langCode = 'sv';
 var dataContent = '';
 var langQ = '';
 var popped = false;
+var clicksound = '';
+var thumbWidth = '400';
 $( document ).ready( function() {
 	//set language by parameter
 	var uselang = getURLParameter('uselang');
@@ -14,7 +16,7 @@ $( document ).ready( function() {
 		onSelect : function( language ) {
 			switchLanguage( language );
 		},
-		quickList: ['en', 'de', 'es', 'fr', 'ru', 'ja', 'ko', 'sv', 'he']
+		quickList: ['en', 'de', 'es', 'fr', 'ru', 'ja', 'he', 'sv']
 	} );
 
 	//load langQ json
@@ -30,18 +32,15 @@ $( document ).ready( function() {
 		return false;  // should prevent kill trigger?
 	    }
 	    else {
-		console.log(dataContent);
 		var $triggerElement = $(this);
 		var entity = $(this).children().attr('its-ta-ident-ref').split('/entity/')[1];
-		dataContent = 'This has qNo ' + entity + '<br/>Image: <property-P18><br/>Sound: <property-P443>';
+		dataContent = 'This has qNo ' + entity +
+			      '<br/>Image: <property-P18>' +
+			      '<br/>Sound: <property-P443>';
 		var jqxhrP18 = getClaims( entity, 'P18', null, null );
-		console.log('langCode: ' + langCode + ', langQ[langCode]: ' + langQ.langCode );
-		console.log('langCode in langQ: ' + langCode in langQ);
 		var jqxhrP443 = getClaims( entity, 'P443', 'P407', langQ[langCode] );
-    
+
 		$.when(jqxhrP18, jqxhrP443).done(function() {
-		    console.log(dataContent);
-		    console.log($triggerElement.attr('data-content'));
 		    $triggerElement.attr('data-content', dataContent);
 		    popped = true;
 		    $triggerElement.popover('toggle');
@@ -88,8 +87,6 @@ function getClaims( entity, property, qualifier, qualifierValues ) {
 	    }
 	    else if ( claim.qualifiers && qualifier in claim.qualifiers ) {
 		var qVal = 'Q' + claim.qualifiers[qualifier][0].datavalue.value['numeric-id'];
-		console.log(qVal + ' in ' + qualifierValues +' ?');
-		console.log($.inArray(qVal, qualifierValues)!==-1);
 		if ( $.inArray(qVal, qualifierValues)!==-1 ) {
 		    setClaim(property, claim.mainsnak.datavalue.value);
 		    return false;
@@ -101,8 +98,34 @@ function getClaims( entity, property, qualifier, qualifierValues ) {
 
 //sets the value of a given property in a popup
 function setClaim(property, value) {
-    console.log(property + ', ' + value);
-    dataContent = dataContent.replace('<property-'+property+'>',value);
+    if ( property == 'P18' ) {
+	descrUrl = 'https://commons.wikimedia.org/wiki/File:' +
+		    value.replace(' ', '_');
+	dataContent = dataContent.replace(
+	    '<property-' + property + '>',
+	    '<a href="' + descrUrl + '">' +
+		'<img src="https://commons.wikimedia.org/w/thumb.php' +
+		    '?width=' + thumbWidth +
+		    '&f=' + value + '">' +
+	    '</a>'
+	);
+    }
+    else if ( property == 'P443' ){
+	contentUrl = 'https://commons.wikimedia.org/wiki/Special:Redirect/file?wptype=file&wpvalue=' +
+		      value.replace(' ', '+');
+	descrUrl = 'https://commons.wikimedia.org/wiki/File:' +
+		    value.replace(' ', '_');
+	clicksound = createsoundbite(contentUrl);
+	dataContent = dataContent.replace(
+	    '<property-' + property + '>',
+	    '<a href="#current" onclick="clicksound.playclip()">' +
+	        '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Gnome-mime-sound-openclipart.svg/100px-Gnome-mime-sound-openclipart.svg.png">' +
+	    '</a>' +
+	    '<a href="' + descrUrl + '">' +
+		'<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Info_Simple_bw.svg/20px-Info_Simple_bw.svg.png">' +
+	    '</a>'
+	);
+    }
 }
 
 //all of the needed language changes
