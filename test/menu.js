@@ -18,9 +18,7 @@ $( document ).ready( function() {
 	} );
 
 	//load langQ json
-	console.log('HELLO1!');
 	var jqxhrLangQ = $.getJSON("./code2langQ.json", function( data ) {
-	    console.log('GODbye!');
 	    langQ = data;
 	});
 
@@ -85,14 +83,12 @@ function getClaims( entity, property, qualifier, qualifierValues ) {
 	    }
 	    else if ( qualifierValues === null || typeof qualifierValues === "undefined" ){
 		// no language match at all
+		console.log('no language match at all');
 		return false;
 	    }
 	    else if ( claim.qualifiers && qualifier in claim.qualifiers ) {
-		console.log('hej ' + claim.qualifiers[qualifier][0].datavalue.value['numeric-id']);
-		console.log(qualifierValues.slice(1) + ' == ' +
-		    claim.qualifiers[qualifier][0].datavalue.value['numeric-id']+
-		    ' ?');
 		var qVal = 'Q' + claim.qualifiers[qualifier][0].datavalue.value['numeric-id'];
+		console.log(qVal + ' in ' + qualifierValues +' ?' + qVal in qualifierValues);
 		if ( qVal in qualifierValues ) {
 		    setClaim(property, claim.mainsnak.datavalue.value);
 		    return false;
