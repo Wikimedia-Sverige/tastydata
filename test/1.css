@@ -1,0 +1,18 @@
+body{
+    background-image: url("https://commons.wikimedia.org/wiki/Special:Redirect/file?wptype=file&wpvalue=Grisblänkan+August+2013+(cropped).jpg");
+}
+
+mark,
+.menu,
+.btn-primary {
+    border-color: #FFdd88;
+    background-color: #FFdd88;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active {
+    border-color: #FFFFFF;
+    background-color: #FFFFFF;
+}
