@@ -115,7 +115,7 @@ def makeDish(dishData):
         txt += addComment(dishData['cmt'], indent+2)
 
     # add price
-    txt += u'\n%s<span class="price">%skr</span>' % ((indent+1)*block, dishData['price'])
+    txt += u'\n%s<span class="price">%s</span>' % ((indent+1)*block, dishData['price'])
     txt += u'\n%s</p>' % (indent*block)
 
     # ingredients with wrapper
