@@ -68,6 +68,7 @@ $( document ).ready( function() {
 	$(".popoverImg").on('click', function(event){
 	    console.log($(event.target));
 	    console.log('popoverImg-click');
+	    event.stopPropagation();
 	    return false;  // should prevent other kill triggers?
 	});
 } );
