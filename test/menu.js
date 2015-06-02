@@ -66,7 +66,7 @@ $( document ).ready( function() {
 	    }
 	});
 	// but not if you click on an image insied the popover
-	$(".popoverImg").on('click', function(event){
+	$('.popoverImg').on('click', function(event){
 	    console.log($(event.target));
 	    console.log('popoverImg-click');
 	    event.stopPropagation();
