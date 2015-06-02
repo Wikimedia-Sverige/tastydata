@@ -27,7 +27,6 @@ $( document ).ready( function() {
 	//trigger lookup on popover event
 	//and close again if clicking anywhere except images inside the popup
 	$("[data-toggle='popover']").on('click', function(event){
-	    console.log($(event.target));
 	    event.stopPropagation();
 	    console.log('popoverTrigger-click');
 	    if ( popped ) {
@@ -40,8 +39,8 @@ $( document ).ready( function() {
 		var $triggerElement = $(this);
 		var entity = $(this).children().attr('its-ta-ident-ref').split('/entity/')[1];
 		dataContent = 'This has qNo ' + entity +
-			      '<br/>Image: <property-P18>' +
-			      '<br/>Sound: <property-P443>';
+			      '<br/>Sound: <property-P443>' +
+			      '<br/>Image: <property-P18>';
 		var jqxhrP18 = getClaims( entity, 'P18', null, null );
 		var jqxhrP443 = getClaims( entity, 'P443', 'P407', langQ[langCode] );
 
@@ -54,9 +53,7 @@ $( document ).ready( function() {
 	});
 	// Kill also if you clicked anywhere else
 	$('body').on('click', function(event){
-	    console.log($(event.target));
 	    console.log('anywhere-click');
-	    console.log($(event.target).is('img.popoverImg'));
 	    if ( popped ) {
 		if ( !$(event.target).is('img.popoverImg') ) {
 		    $("[data-toggle='popover']").popover('destroy');
@@ -64,13 +61,6 @@ $( document ).ready( function() {
 		    console.log('anywhere-click-close');
 		}
 	    }
-	});
-	// but not if you click on an image insied the popover
-	$('.popoverImg').on('click', function(event){
-	    console.log($(event.target));
-	    console.log('popoverImg-click');
-	    event.stopPropagation();
-	    return false;  // should prevent other kill triggers?
 	});
 } );
 

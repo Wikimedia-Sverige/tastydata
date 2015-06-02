@@ -13,6 +13,6 @@ mark,
 .btn-primary:focus,
 .btn-primary:active,
 .btn-primary.active {
-    border-color: #FFFFFF;
-    background-color: #FFFFFF;
+    border-color: #fec503;
+    background-color: #fec503;
 }
