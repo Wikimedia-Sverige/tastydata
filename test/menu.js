@@ -31,10 +31,10 @@ $( document ).ready( function() {
 	    return false;  // should prevent other kill triggers?
 	});
 	$("[data-toggle='popover']").on('click', function(){
-	    console.log('popoverTrigger-click');
 	    if ( popped ) {
 		$(this).popover('toggle');
 		popped = false;
+		console.log('popoverTrigger-click');
 		return false;  // should prevent kill trigger?
 	    }
 	    else {
@@ -55,10 +55,12 @@ $( document ).ready( function() {
 	});
 	// Kill also if you clicked anywhere else
 	$(document).on('click', function(){
-	    console.log('anywhere-click');
 	    if ( popped ) {
-		$("[data-toggle='popover']").popover('destroy');
-		popped = false;
+		if ( !$(event.target).is('.popoverImg') ) {
+		    $("[data-toggle='popover']").popover('destroy');
+		    popped = false;
+		    console.log('anywhere-click');
+		}
 	    }
 	});
 } );
