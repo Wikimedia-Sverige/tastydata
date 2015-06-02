@@ -5,14 +5,14 @@ body{
 mark,
 .menu,
 .btn-primary {
-    border-color: #FFdd88;
-    background-color: #FFdd88;
+    border-color: #ffcc00;
+    background-color: #ffcc00;
 }
 
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active,
 .btn-primary.active {
-    border-color: #fec503;
-    background-color: #fec503;
+    border-color: #e6b800;
+    background-color: #e6b800;
 }
