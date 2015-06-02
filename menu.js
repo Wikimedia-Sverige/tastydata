@@ -2,6 +2,8 @@ var langCode = 'sv';
 var dataContent = '';
 var langQ = '';
 var popped = false;
+var clicksound = '';
+var thumbWidth = '400';
 $( document ).ready( function() {
 	//set language by parameter
 	var uselang = getURLParameter('uselang');
@@ -23,16 +25,22 @@ $( document ).ready( function() {
 	});
 
 	//trigger lookup on popover event
-	$("[data-toggle='popover']").on('click', function(){
+	//and close again if clicking anywhere except images inside the popup
+	$("[data-toggle='popover']").on('click', function(event){
+	    event.stopPropagation();
+	    console.log('popoverTrigger-click');
 	    if ( popped ) {
 		$(this).popover('toggle');
 		popped = false;
+		console.log('popoverTrigger-click-close');
 		return false;  // should prevent kill trigger?
 	    }
 	    else {
 		var $triggerElement = $(this);
 		var entity = $(this).children().attr('its-ta-ident-ref').split('/entity/')[1];
-		dataContent = 'This has qNo ' + entity + '<br/>Image: <property-P18><br/>Sound: <property-P443>';
+		dataContent = 'This has qNo ' + entity +
+			      '<br/>Sound: <property-P443>' +
+			      '<br/>Image: <property-P18>';
 		var jqxhrP18 = getClaims( entity, 'P18', null, null );
 		var jqxhrP443 = getClaims( entity, 'P443', 'P407', langQ[langCode] );
 
@@ -44,10 +52,14 @@ $( document ).ready( function() {
 	    }
 	});
 	// Kill also if you clicked anywhere else
-	$(document).on('click', function(){
+	$('body').on('click', function(event){
+	    console.log('anywhere-click');
 	    if ( popped ) {
-		$("[data-toggle='popover']").popover('destroy');
-		popped = false;
+		if ( !$(event.target).is('img.popoverImg') ) {
+		    $("[data-toggle='popover']").popover('destroy');
+		    popped = false;
+		    console.log('anywhere-click-close');
+		}
 	    }
 	});
 } );
@@ -94,7 +106,34 @@ function getClaims( entity, property, qualifier, qualifierValues ) {
 
 //sets the value of a given property in a popup
 function setClaim(property, value) {
-    dataContent = dataContent.replace('<property-'+property+'>',value);
+    if ( property == 'P18' ) {
+	descrUrl = 'https://commons.wikimedia.org/wiki/File:' +
+		    value.replace(' ', '_');
+	dataContent = dataContent.replace(
+	    '<property-' + property + '>',
+	    '<a href="' + descrUrl + '">' +
+		'<img class="popoverImg" src="https://commons.wikimedia.org/w/thumb.php' +
+		    '?width=' + thumbWidth +
+		    '&f=' + value + '">' +
+	    '</a>'
+	);
+    }
+    else if ( property == 'P443' ){
+	contentUrl = 'https://commons.wikimedia.org/wiki/Special:Redirect/file?wptype=file&wpvalue=' +
+		      value.replace(' ', '+');
+	descrUrl = 'https://commons.wikimedia.org/wiki/File:' +
+		    value.replace(' ', '_');
+	clicksound = createsoundbite(contentUrl);
+	dataContent = dataContent.replace(
+	    '<property-' + property + '>',
+	    '<a href="#" onclick="clicksound.playclip()">' +
+	        '<img class="popoverImg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Gnome-mime-sound-openclipart.svg/100px-Gnome-mime-sound-openclipart.svg.png">' +
+	    '</a>' +
+	    '<a href="' + descrUrl + '">' +
+		'<img class="popoverImg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Info_Simple_bw.svg/20px-Info_Simple_bw.svg.png">' +
+	    '</a>'
+	);
+    }
 }
 
 //all of the needed language changes
@@ -122,5 +161,46 @@ function getURLParameter(param) {
         if (parameterName[0] == param) {
             return parameterName[1];
         }
+    }
+}
+
+// Mouseover/ Click sound effect- by JavaScript Kit (www.javascriptkit.com)
+// Visit JavaScript Kit at http://www.javascriptkit.com/ for full source code
+
+//** Usage: Instantiate script by calling: var uniquevar=createsoundbite("soundfile1", "fallbackfile2", "fallebacksound3", etc)
+//** Call: uniquevar.playclip() to play sound
+
+var html5_audiotypes={ //define list of audio file extensions and their associated audio types. Add to it if your specified audio file isn't on this list:
+    "mp3": "audio/mpeg",
+    "mp4": "audio/mp4",
+    "ogg": "audio/ogg",
+    "wav": "audio/wav"
+};
+
+function createsoundbite(sound){
+    var html5audio = document.createElement('audio');
+    if (html5audio.canPlayType){ //check support for HTML5 audio
+	for (var i=0; i<arguments.length; i++) {
+	    var sourceel = document.createElement('source');
+	    sourceel.setAttribute('src', arguments[i]);
+	    if (arguments[i].match(/\.(\w+)$/i)) {
+		sourceel.setAttribute('type', html5_audiotypes[RegExp.$1]);
+	    }
+	    html5audio.appendChild(sourceel);
+	}
+	html5audio.load();
+	html5audio.playclip = function(){
+	    html5audio.pause();
+	    html5audio.currentTime=0;
+	    html5audio.play();
+	};
+	return html5audio;
+    }
+    else {
+	return {
+	    playclip: function(){
+		throw new Error("Your browser doesn't support HTML5 audio unfortunately");
+	    }
+	};
     }
 }
