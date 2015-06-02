@@ -89,9 +89,8 @@ function getClaims( entity, property, qualifier, qualifierValues ) {
 	    else if ( claim.qualifiers && qualifier in claim.qualifiers ) {
 		var qVal = 'Q' + claim.qualifiers[qualifier][0].datavalue.value['numeric-id'];
 		console.log(qVal + ' in ' + qualifierValues +' ?');
-		console.log(typeof qualifierValues);
 		console.log($.inArray(qVal, qualifierValues)!==-1);
-		if ( qVal in qualifierValues ) {
+		if ( $.inArray(qVal, qualifierValues)!==-1 ) {
 		    setClaim(property, claim.mainsnak.datavalue.value);
 		    return false;
 		}
