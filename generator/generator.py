@@ -144,7 +144,8 @@ def addComment(cmt, indent):
     '''
     txt = addQlabel(cmt, indent)
     # If brackets are not wrapped tightly then spaces sneak in
-    return txt.replace('<span', '(<span').replace('</span>', '</span>)')
+    txt = txt.replace('<span', '(<span').replace('</span>', '</span>)')
+    return txt.replace('class="qlabel"', 'class="qlabel cmt"')
 
 
 def addQlabel(entity, indent):
