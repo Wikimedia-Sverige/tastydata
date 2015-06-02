@@ -1,5 +1,6 @@
 var langCode = 'sv';
 var dataContent = '';
+var langQ = '';
 var popped = false;
 $( document ).ready( function() {
 	//set language by parameter
@@ -13,14 +14,13 @@ $( document ).ready( function() {
 		onSelect : function( language ) {
 			switchLanguage( language );
 		},
-		quickList: ['en', 'de', 'es', 'fr', 'ru', 'ja', 'ko', 'sv']
+		quickList: ['en', 'de', 'es', 'fr', 'ru', 'ja', 'he', 'sv']
 	} );
 
 	//load langQ json
-	var langQ = {
-	    'sv' : 'Q1123',
-	    'fr' : 'Q150'
-	};
+	var jqxhrLangQ = $.getJSON("./code2langQ.json", function( data ) {
+	    langQ = data;
+	});
 
 	//trigger lookup on popover event
 	$("[data-toggle='popover']").on('click', function(){
@@ -30,16 +30,13 @@ $( document ).ready( function() {
 		return false;  // should prevent kill trigger?
 	    }
 	    else {
-		console.log(dataContent);
 		var $triggerElement = $(this);
 		var entity = $(this).children().attr('its-ta-ident-ref').split('/entity/')[1];
-		dataContent = 'This has qNo ' + entity + 'Image: <property-P18>, Sound: <property-P443>';
+		dataContent = 'This has qNo ' + entity + '<br/>Image: <property-P18><br/>Sound: <property-P443>';
 		var jqxhrP18 = getClaims( entity, 'P18', null, null );
 		var jqxhrP443 = getClaims( entity, 'P443', 'P407', langQ[langCode] );
-    
+
 		$.when(jqxhrP18, jqxhrP443).done(function() {
-		    console.log(dataContent);
-		    console.log($triggerElement.attr('data-content'));
 		    $triggerElement.attr('data-content', dataContent);
 		    popped = true;
 		    $triggerElement.popover('toggle');
@@ -59,10 +56,11 @@ $( document ).ready( function() {
  * request the claims for a specific entity for a specific property
  * (value must be of type string)
  * if a qualifier is not null then only claims where the qualifier is
- * present and has the value qualifierValue (must be of type wikibase-entityid)
- * are used
+ * present and has one of the value qualifierValues (must be of type
+ * wikibase-entityid) are used
  */
-function getClaims( entity, property, qualifier, qualifierValue ) {
+function getClaims( entity, property, qualifier, qualifierValues ) {
+    console.log('prop: ' + property +', qual: '+qualifier+', qualValues: '+qualifierValues);
     return $.getJSON('https://www.wikidata.org/w/api.php?callback=?', {
 	action: 'wbgetclaims',
 	entity: entity,
@@ -78,15 +76,14 @@ function getClaims( entity, property, qualifier, qualifierValue ) {
 		setClaim(property, claim.mainsnak.datavalue.value);
 		return false;
 	    }
-	    else if ( qualifierValue === null || typeof qualifierValue === "undefined" ){
+	    else if ( qualifierValues === null || typeof qualifierValues === "undefined" ){
 		// no language match at all
+		console.log('no language match at all');
 		return false;
 	    }
 	    else if ( claim.qualifiers && qualifier in claim.qualifiers ) {
-		console.log(qualifierValue.slice(1) + ' == ' +
-		    claim.qualifiers[qualifier][0].datavalue.value['numeric-id']+
-		    ' ?');
-		if ( qualifierValue.slice(1) == claim.qualifiers[qualifier][0].datavalue.value['numeric-id'] ) {
+		var qVal = 'Q' + claim.qualifiers[qualifier][0].datavalue.value['numeric-id'];
+		if ( $.inArray(qVal, qualifierValues)!==-1 ) {
 		    setClaim(property, claim.mainsnak.datavalue.value);
 		    return false;
 		}
@@ -97,7 +94,6 @@ function getClaims( entity, property, qualifier, qualifierValue ) {
 
 //sets the value of a given property in a popup
 function setClaim(property, value) {
-    console.log(property + ', ' + value);
     dataContent = dataContent.replace('<property-'+property+'>',value);
 }
 
