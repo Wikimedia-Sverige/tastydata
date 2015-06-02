@@ -54,7 +54,7 @@ $( document ).ready( function() {
 	    }
 	});
 	// Kill also if you clicked anywhere else
-	$(document).on('click', function(){
+	$(document).on('click', function(event){
 	    if ( popped ) {
 		if ( !$(event.target).is('.popoverImg') ) {
 		    $("[data-toggle='popover']").popover('destroy');
