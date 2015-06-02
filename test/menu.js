@@ -25,6 +25,10 @@ $( document ).ready( function() {
 	});
 
 	//trigger lookup on popover event
+	//and close again if clicking anywhere except images inside the popup
+	$("popoverImg").on('click', function(){
+	    return false;  // should prevent other kill triggers?
+	}
 	$("[data-toggle='popover']").on('click', function(){
 	    if ( popped ) {
 		$(this).popover('toggle');
@@ -104,7 +108,7 @@ function setClaim(property, value) {
 	dataContent = dataContent.replace(
 	    '<property-' + property + '>',
 	    '<a href="' + descrUrl + '">' +
-		'<img src="https://commons.wikimedia.org/w/thumb.php' +
+		'<img class="popoverImg" src="https://commons.wikimedia.org/w/thumb.php' +
 		    '?width=' + thumbWidth +
 		    '&f=' + value + '">' +
 	    '</a>'
@@ -119,10 +123,10 @@ function setClaim(property, value) {
 	dataContent = dataContent.replace(
 	    '<property-' + property + '>',
 	    '<a href="#current" onclick="clicksound.playclip()">' +
-	        '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Gnome-mime-sound-openclipart.svg/100px-Gnome-mime-sound-openclipart.svg.png">' +
+	        '<img class="popoverImg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Gnome-mime-sound-openclipart.svg/100px-Gnome-mime-sound-openclipart.svg.png">' +
 	    '</a>' +
 	    '<a href="' + descrUrl + '">' +
-		'<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Info_Simple_bw.svg/20px-Info_Simple_bw.svg.png">' +
+		'<img class="popoverImg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Info_Simple_bw.svg/20px-Info_Simple_bw.svg.png">' +
 	    '</a>'
 	);
     }
