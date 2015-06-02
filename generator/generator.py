@@ -157,7 +157,7 @@ def addQlabel(entity, indent):
     i = '' + indent * block
     if entity in qMatches.keys():
         return u'''
-%s<a href="#" title="%s" data-toggle="popover" data-trigger="focus" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+%s<a href="#" title="%s" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
 %s<span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/%s">%s</span>
 %s</a>''' % (i, entity, (indent+1)*block, qMatches[entity], entity, i)
     else:
