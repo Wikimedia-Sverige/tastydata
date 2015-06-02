@@ -121,7 +121,7 @@ function setClaim(property, value) {
 		    value.replace(' ', '_');
 	dataContent = dataContent.replace(
 	    '<property-' + property + '>',
-	    '<a href="' + descrUrl + '">' +
+	    '<a class="popoverImg" href="' + descrUrl + '">' +
 		'<img class="popoverImg" src="https://commons.wikimedia.org/w/thumb.php' +
 		    '?width=' + thumbWidth +
 		    '&f=' + value + '">' +
