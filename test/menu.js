@@ -27,9 +27,11 @@ $( document ).ready( function() {
 	//trigger lookup on popover event
 	//and close again if clicking anywhere except images inside the popup
 	$(".popoverImg").on('click', function(){
+	    console.log('popoverImg-click');
 	    return false;  // should prevent other kill triggers?
 	});
 	$("[data-toggle='popover']").on('click', function(){
+	    console.log('popoverTrigger-click');
 	    if ( popped ) {
 		$(this).popover('toggle');
 		popped = false;
@@ -53,6 +55,7 @@ $( document ).ready( function() {
 	});
 	// Kill also if you clicked anywhere else
 	$(document).on('click', function(){
+	    console.log('anywhere-click');
 	    if ( popped ) {
 		$("[data-toggle='popover']").popover('destroy');
 		popped = false;
