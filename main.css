@@ -102,8 +102,8 @@ li {
 }
 
 .price {
-    text-transform: capitalize;
-    float: right;
+    text-transform: initial;
+    /* float: right; */
     /*   Clears float so it doesn't mess up the alignment of the rest */
     clear: both;
 }
