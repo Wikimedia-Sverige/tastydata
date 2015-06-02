@@ -53,18 +53,18 @@ $( document ).ready( function() {
 	    }
 	});
 	// Kill also if you clicked anywhere else
-	$('body').on('click', function(event){
-	    console.log($(event.target));
-	    console.log('anywhere-click');
-	    console.log($(event.target).is('img.popoverImg'));
-	    if ( popped ) {
-		if ( !$(event.target).is('img.popoverImg') ) {
-		    $("[data-toggle='popover']").popover('destroy');
-		    popped = false;
-		    console.log('anywhere-click-close');
-		}
-	    }
-	});
+	//$('body').on('click', function(event){
+	    //console.log($(event.target));
+	    //console.log('anywhere-click');
+	    //console.log($(event.target).is('img.popoverImg'));
+	    //if ( popped ) {
+		//if ( !$(event.target).is('img.popoverImg') ) {
+		    //$("[data-toggle='popover']").popover('destroy');
+		    //popped = false;
+		    //console.log('anywhere-click-close');
+		//}
+	    //}
+	//});
 	// but not if you click on an image insied the popover
 	$('.popoverImg').on('click', function(event){
 	    console.log($(event.target));
@@ -121,7 +121,7 @@ function setClaim(property, value) {
 		    value.replace(' ', '_');
 	dataContent = dataContent.replace(
 	    '<property-' + property + '>',
-	    '<a class="popoverImg" href="' + descrUrl + '">' +
+	    '<a href="' + descrUrl + '">' +
 		'<img class="popoverImg" src="https://commons.wikimedia.org/w/thumb.php' +
 		    '?width=' + thumbWidth +
 		    '&f=' + value + '">' +
