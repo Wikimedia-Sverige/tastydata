@@ -119,15 +119,18 @@ li {
 }
 
 .popover {
-    /* could simply try centering it on the page */
     font-family: inherit;
     border: 0;
     max-width: 400px;
     width: auto;
+    /* dirty hack to make popovers not escape the page */
+    top: 40% !important;
+    left: 40% !important;
 }
 
 .popover .arrow {
     border: 0;
+    display: none;
 }
 
 .popover-title {
