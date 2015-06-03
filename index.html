@@ -1,57 +1,133 @@
 <!DOCTYPE html>
 <html>
- <head>
-  <meta charset="utf-8">
-  <title>Fish and Chips by Melanders</title>
-  <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic,latin-ext' rel='stylesheet' type='text/css'>
-  <link href="lib/jquery.uls/css/jquery.uls.css" rel="stylesheet"/>
-  <link href="lib/jquery.uls/css/jquery.uls.grid.css" rel="stylesheet"/>
-  <link href="lib/jquery.uls/css/jquery.uls.lcd.css" rel="stylesheet"/>
-  <link rel="stylesheet" href="menu.css" />
-  <script src="lib/jquery-1.10.2.min.js"></script>
-  <script src="lib/jquery.qlabel.js"></script>
-  <script src="lib/jquery.uls/src/jquery.uls.data.js"></script>
-  <script src="lib/jquery.uls/src/jquery.uls.data.utils.js"></script>
-  <script src="lib/jquery.uls/src/jquery.uls.lcd.js"></script>
-  <script src="lib/jquery.uls/src/jquery.uls.languagefilter.js"></script>
-  <script src="lib/jquery.uls/src/jquery.uls.regionfilter.js"></script>
-  <script src="lib/jquery.uls/src/jquery.uls.core.js"></script>
-  <script src="menu.js"></script>
- </head>
- <body bgcolor="#EEEEFF">
- <div id="wrapper">
-  <div id="header">
-   <span class="uls-trigger">Select language</span>
-  </div>
-  <div id="main">
-  <div class="content">
-   <h1><span class="qlabel">Fish and Chips by Melanders</span></h1>
-   <ul>
-    <li>
-<a href="http://www.wikidata.org/entity/Q185623"><span class="qlabel food" its-ta-ident-ref="http://www.wikidata.org/entity/Q203925">Fish and Chips</span></a> 
-     <span class="price">90 kr</span><br/>
-     <a href="http://www.wikidata.org/entity/Q199788"><span class="qlabel ingredient" its-ta-ident-ref="http://www.wikidata.org/entity/Q199788">Torsk</span></a>
-</li>
-<li>
-<a href="http://www.wikidata.org/entity/Q128257"><span class="qlabel food" its-ta-ident-ref="http://www.wikidata.org/entity/Q128257">Bläckfisk</span></a> 
-     <span class="price">80 kr</span><br/>
-<a href="http://www.wikidata.org/entity/Q1571226"><span class="qlabel ingredient" its-ta-ident-ref="http://www.wikidata.org/entity/Q1571226">egenpanerad</span></a>, 
-<a href="http://www.wikidata.org/entity/Q152088"><span class="qlabel ingredient" its-ta-ident-ref="http://www.wikidata.org/entity/Q152088">Pommes</span></a>, 
-<a href="http://www.wikidata.org/entity/Q283231"><span class="qlabel ingredient" its-ta-ident-ref="http://www.wikidata.org/entity/Q283231">Aioli</span></a>
-
-</li>
-   </ul>
-  </div>
-  </div>
-  <div id="footer">
-  <p style="margin-left:20px; margin-top:-20px;">
-     <br>
-   Apapted by <a href="http://wikimedia.se">Wikimedia Sverige</a> based on work by <a href="http://denny.vrandecic.de">Denny Vrandecic</a>. Funded by <a href="http://vinnova.se">Vinnova</a>.
-   <br>
-   Image: <a href="https://commons.wikimedia.org/wiki/File:Grisbl%C3%A4nkan_August_2013.jpg">Grisblänkan August 2013</a>
-    by <a href="https://commons.wikimedia.org/wiki/User:ArildV">Arild Vågen</a>,
-     license: <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.sv" rel="license">CC BY-SA 3.0</a></p>
-  </div>
-  </div>
- </body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Tastydata restaurant index</title>
+    <!-- Bootstrap and Main CSS files -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="main.css" rel="stylesheet" type="text/css"/>
+    <!-- Menu-specific CSS that overrides Bootstrap and Main -->
+    <link href="index.css" rel="stylesheet" type="text/css">
+    <!-- Custom fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css">
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <p class="restaurant-name"><mark>Restaurant index</mark></p>
+        <ul class="menu flow-text">
+        <li>
+          <p class="dish"><a href="1.html">1. Bun Bun Truck</a></p>
+        </li>
+        <li>
+          <p class="dish"><a href="2.html">2. Fred's Food Truck</a></p>
+        </li>
+        <li>
+          <p class="dish">3. Curbside</p>
+        </li>
+        <li>
+          <p class="dish"><a href="4.html">4. Silvia's Vägbistro</a></p>
+        </li>
+        <li>
+          <p class="dish"><a href="5.html">5. SOOK</a></p>
+        </li>
+        <li>
+          <p class="dish"><a href="6.html">6. Indian Street Food & Co</a></p>
+        </li>
+        <li>
+          <p class="dish"><a href="7.html">7. Odjuret</a></p>
+        </li>
+        <li>
+          <p class="dish"><a href="8.html">8. Good Stuff from Carotte</a></p>
+        </li>
+        <li>
+          <p class="dish"><a href="9.html">9. Adam & Albin Matstudio</a></p>
+        </li>
+        <li>
+          <p class="dish">10. Babas Burgers & Bite</p>
+        </li>
+        <li>
+          <p class="dish">11. Sjömagasinet Gästkrog</p>
+        </li>
+        <li>
+          <p class="dish"><a href="12.html">12. Farang</a></p>
+        </li>
+        <li>
+          <p class="dish"><a href="13.html">13-14. Boston Grill</a></p>
+        </li>
+        <li>
+          <p class="dish"><a href="15.html">15. Hemlagat i Haninge</a></p>
+        </li>
+        <li>
+          <p class="dish"><a href="16.html">16. Skärgårdssmaker</a></p>
+        </li>
+        <li>
+          <p class="dish">17. Okänd</p>
+        </li>
+        <li>
+          <p class="dish">18. Indian Garden</p>
+        </li>
+        <li>
+          <p class="dish"><a href="19.html">19. Prince Philosopher</a></p>
+        </li>
+        <li>
+          <p class="dish"><a href="20.html">20. Pho & Bun</a></p>
+        </li>
+        <li>
+          <p class="dish"><a href="21.html">21. Rotisserie by Melanders</a></p>
+        </li>
+        <li>
+          <p class="dish"><a href="22.html">22. Fish´n Chips by Melanders</a></p>
+        </li>
+        <li>
+          <p class="dish"><a href="23.html">23. Boqueria</a></p>
+        </li>
+        <li>
+          <p class="dish"><a href="24.html">24. Tennstopet</a></p>
+        </li>
+        <li>
+          <p class="dish"><a href="25.html">25. Yolo</a></p>
+        </li>
+        <li>
+          <p class="dish"><a href="26.html">26. Tumi Cosina Peruana</a></p>
+        </li>
+        <li>
+          <p class="dish">27. Bröderna Olssons Garlic & Shots</p>
+        </li>
+        <li>
+          <p class="dish">28. Korvkiosk från Åre</p>
+        </li>
+        <li>
+          <p class="dish"><a href="29.html">29-30. Utö Värdshus</a></p>
+        </li>
+        <li>
+          <p class="dish"><a href="31.html">31. Lila Foodtruck</a></p>
+        </li>
+        <li>
+          <p class="dish">32. Ingen</p>
+        </li>
+        <li>
+          <p class="dish"><a href="33.html">33. Charlie in the tree</a></p>
+        </li>
+        <li>
+          <p class="dish"><a href="34.html">34. VIP Melanders fisk</a></p>
+        </li>
+        <li>
+          <p class="dish"><a href="35.html">35. Melanders Fisk – A la carte</a></p>
+        </li>
+      </ul>
+    </div>
+    <div class="row footer">
+      A project by <a href="http://wikimedia.se">Wikimedia Sverige</a>. Funded by <a href="http://vinnova.se">Vinnova</a>.
+      <br />
+      Image: <a href="https://commons.wikimedia.org/wiki/File:Wikidata_tastydata.svg">Wikidata tastydata</a> by <a href="https://commons.wikimedia.org/wiki/User:ArildV">Offnfopt</a>, license: <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.sv" rel="license">CC0</a>
+      </div>
+    </div>
+  </body>
 </html>
