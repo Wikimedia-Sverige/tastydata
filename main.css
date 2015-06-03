@@ -135,6 +135,7 @@ li {
 }
 .popover-content {
     color: black;
+    text-transform: initial;
 }
 
 .footer {
