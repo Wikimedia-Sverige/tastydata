@@ -16,7 +16,7 @@ qMatches = {}
 block = '  '
 
 
-def run(dataFile, mathchesFile):
+def run(dataFile, matchesFile):
     '''
     Given a data file and an output directory generate one html+css per
     restaurant to said directory. Also generates an index page.
@@ -76,7 +76,7 @@ def run(dataFile, mathchesFile):
     f.close()
 
     # do matches
-    f = codecs.open(mathchesFile, 'r', 'utf8')
+    f = codecs.open(matchesFile, 'r', 'utf8')
     lines = f.read().split('\n')
     f.close()
 
@@ -90,6 +90,6 @@ def run(dataFile, mathchesFile):
         else:
             matches[p[0]] = p[1]
 
-    f = codecs.open(u'%s.json' % mathchesFile[:-len('.tsv')], 'w', 'utf8')
+    f = codecs.open(u'%s.json' % matchesFile[:-len('.tsv')], 'w', 'utf8')
     f.write(json.dumps(matches, indent=4, ensure_ascii=False))
     f.close()

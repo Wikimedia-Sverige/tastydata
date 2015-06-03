@@ -16,9 +16,12 @@ import json
 
 qMatches = {}
 block = '  '
+# keep track of matched and unmatched words to identify any missed connections
+unmatched = []
+matched = []
 
 
-def run(dataFile, mathchesFile, directory=u'.'):
+def run(dataFile, matchesFile, directory=u'.'):
     '''
     Given a data file and an output directory generate one html+css per
     restaurant to said directory. Also generates an index page.
@@ -30,7 +33,7 @@ def run(dataFile, mathchesFile, directory=u'.'):
     f.close()
 
     # load qMatches
-    f = codecs.open(mathchesFile, 'r', 'utf8')
+    f = codecs.open(matchesFile, 'r', 'utf8')
     qMatches = json.load(f)
     f.close()
 
@@ -43,6 +46,15 @@ def run(dataFile, mathchesFile, directory=u'.'):
     # make html from index
     f = codecs.open(u'%s/index.html' % directory, 'w', 'utf8')
     f.write(makeIndex(index))
+    f.close()
+
+    # output matched and unmatched
+    global matched, unmatched
+    matched = list(set(matched))
+    unmatched = list(set(unmatched))
+    f = codecs.open(u'matchinfo.csv' % directory, 'w', 'utf8')
+    f.write(u'%s\n' % '|'.join(matched))
+    f.write(u'%s' % '|'.join(unmatched))
     f.close()
 
 
@@ -154,13 +166,16 @@ def addQlabel(entity, indent):
     If one is found then return ahref + encoded span otherwise just
     span.
     '''
+    global matched, unmatched
     i = '' + indent * block
     if entity in qMatches.keys():
+        matched.append(qMatches[entity])
         return u'''
 %s<a href="#" title="%s" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
 %s<span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/%s">%s</span>
 %s</a>''' % (i, entity, (indent+1)*block, qMatches[entity], entity, i)
     else:
+        unmatched.append(entity)
         return u'''
 %s<span>%s</span>''' % (i, entity)
 
