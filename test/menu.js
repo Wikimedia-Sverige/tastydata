@@ -134,7 +134,7 @@ function setClaim(property, value) {
 	    '<property-' + property + '>',
 	    '<div class="soundDiv">' +
 		'<a href="#" onclick="clicksound.playclip()">' +
-		    '<img class="popoverImg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Gnome-mime-sound-openclipart.svg/100px-Gnome-mime-sound-openclipart.svg.png">' +
+		    '<img class="popoverImg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Gnome-mime-sound-openclipart.svg/50px-Gnome-mime-sound-openclipart.svg.png">' +
 		'</a>' +
 		'<a href="' + descrUrl + '">' +
 		    '<img class="popoverImg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Info_Simple_bw.svg/20px-Info_Simple_bw.svg.png">' +
