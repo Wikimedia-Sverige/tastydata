@@ -136,18 +136,15 @@ li {
 .popover-content {
     color: black;
     text-transform: initial;
+    display: inline;
 }
 
 .thumb {
     max-height: 200px;
 }
 
-.thumbDiv {
-    float: left;
-}
-
 .soundDiv {
-    float: left;
+    display: inline-block;
 }
 
 .footer {
