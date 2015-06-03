@@ -1,0 +1,18 @@
+body{
+    background-image: url("https://commons.wikimedia.org/wiki/Special:Redirect/file?wptype=file&wpvalue=Dabbawala.jpg");
+}
+
+mark,
+.menu,
+.btn-primary {
+    border-color: #9b3f30;
+    background-color: #9b3f30;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active {
+    border-color: #7C3226;
+    background-color: #7C3226;
+}

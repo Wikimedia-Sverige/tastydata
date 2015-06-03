@@ -1,0 +1,18 @@
+body{
+    background-image: url("https://commons.wikimedia.org/wiki/Special:Redirect/file?wptype=file&wpvalue=Fruit+and+vegetables+basket.jpg");
+}
+
+mark,
+.menu,
+.btn-primary {
+    border-color: #e5a637;
+    background-color: #e5a637;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active {
+    border-color: #FF9933;
+    background-color: #FF9933;
+}

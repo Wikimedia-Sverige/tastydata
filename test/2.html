@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Fred's Food Truck</title>
+    <!-- Universal Language Selector CSS -->
+    <link href="lib/jquery.uls/css/jquery.uls.css" rel="stylesheet" type="text/css"/>
+    <link href="lib/jquery.uls/css/jquery.uls.grid.css" rel="stylesheet" type="text/css"/>
+    <link href="lib/jquery.uls/css/jquery.uls.lcd.css" rel="stylesheet" type="text/css"/>
+    <!-- Bootstrap and Main CSS files -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="main.css" rel="stylesheet" type="text/css"/>
+    <!-- Menu-specific CSS that overrides Bootstrap and Main -->
+    <link href="2.css" rel="stylesheet" type="text/css">
+    <!-- Custom fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css">
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- Qlabel libraries -->
+    <script src="lib/jquery.qlabel.js" type="text/javascript"></script>
+    <!-- Universal Language Selector libraries -->
+    <script src="lib/jquery.uls/src/jquery.uls.data.js" type="text/javascript"></script>
+    <script src="lib/jquery.uls/src/jquery.uls.data.utils.js" type="text/javascript"></script>
+    <script src="lib/jquery.uls/src/jquery.uls.lcd.js" type="text/javascript"></script>
+    <script src="lib/jquery.uls/src/jquery.uls.languagefilter.js" type="text/javascript"></script>
+    <script src="lib/jquery.uls/src/jquery.uls.regionfilter.js" type="text/javascript"></script>
+    <script src="lib/jquery.uls/src/jquery.uls.core.js" type="text/javascript"></script>
+    <script src="menu.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row header">
+        <button type="button" class="btn btn-primary uls-trigger">Select language</button>
+      </div>
+      <div class="row">
+        <p class="restaurant-name"><mark>Fred's Food Truck</mark></p>
+        <ul class="menu flow-text">
+          <li>
+            <p class="dish">
+              <a href="#" title="Majsnachos" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q466430">Majsnachos</span></a>
+                <a href="#" title="Nyfriterade" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                  (<span class="qlabel cmt" its-ta-ident-ref="http://www.wikidata.org/entity/Q854618">Nyfriterade</span>)</a>
+              <span class="price">40 kr</span>
+            </p>
+            <p class="ingredient">
+              <a href="#" title="Salsa" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q249114">Salsa</span></a>
+                <a href="#" title="Chipotle" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                  (<span class="qlabel cmt" its-ta-ident-ref="http://www.wikidata.org/entity/Q860808">Chipotle</span>)</a>
+            </p>
+          </li>
+          <li>
+            <p class="dish">
+              <a href="#" title="Quesadilla" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q865325">Quesadilla</span></a>
+                <a href="#" title="Vegetarisk" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                  (<span class="qlabel cmt" its-ta-ident-ref="http://www.wikidata.org/entity/Q638022">Vegetarisk</span>)</a>
+              <span class="price">55 kr</span>
+            </p>
+            <p class="ingredient">
+              <a href="#" title="Spenat" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q81464">Spenat</span></a>, 
+              <a href="#" title="Champinjoner" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q390456">Champinjoner</span></a>, 
+              <a href="#" title="Vitlök" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q23400">Vitlök</span></a>, 
+              <a href="#" title="Ost" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q10943">Ost</span></a>
+            </p>
+          </li>
+          <li>
+            <p class="dish">
+              <a href="#" title="Taco" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q191165">Taco</span></a>
+                <a href="#" title="Fisk" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                  (<span class="qlabel cmt" its-ta-ident-ref="http://www.wikidata.org/entity/Q152">Fisk</span>)</a>
+              <span class="price">80 kr</span>
+            </p>
+            <p class="ingredient">
+              <a href="#" title="Torsk" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q199788">Torsk</span></a>
+                <a href="#" title="MSC-märkt" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                  (<span class="qlabel cmt" its-ta-ident-ref="http://www.wikidata.org/entity/Q19862473">MSC-märkt</span>)</a>, 
+              <a href="#" title="Surkål" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q154166">Surkål</span></a>, 
+              <a href="#" title="Lime" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q13195">Lime</span></a>, 
+              <a href="#" title="Majonnäs" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q167893">Majonnäs</span></a>
+                <a href="#" title="Chipotle" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                  (<span class="qlabel cmt" its-ta-ident-ref="http://www.wikidata.org/entity/Q860808">Chipotle</span>)</a>
+            </p>
+          </li>
+          <li>
+            <p class="dish">
+              <a href="#" title="Pulled pork" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q1347028">Pulled pork</span></a>
+              <span class="price">85 kr</span>
+            </p>
+            <p class="ingredient">
+              <a href="#" title="Coleslaw" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q945475">Coleslaw</span></a>, 
+              <a href="#" title="Chutney" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q275650">Chutney</span></a>
+                <a href="#" title="Äpple" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                  (<span class="qlabel cmt" its-ta-ident-ref="http://www.wikidata.org/entity/Q89">Äpple</span>)</a>, 
+              <a href="#" title="Rödlök" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q622350">Rödlök</span></a>
+                <a href="#" title="Picklad" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                  (<span class="qlabel cmt" its-ta-ident-ref="http://www.wikidata.org/entity/Q1503967">Picklad</span>)</a>
+            </p>
+          </li>
+      </ul>
+    </div>
+    <div class="row footer">
+      Adapted by <a href="http://wikimedia.se">Wikimedia Sverige</a> based on work by <a href="http://denny.vrandecic.de">Denny Vrandecic</a>. Funded by <a href="http://vinnova.se">Vinnova</a>.
+      <br />
+      Image: <a href="https://commons.wikimedia.org/wiki/File:A_REFRESHMENT_STAND_ON_THE_BOARDWALK_OF_ISLE_OF_PALMS,_THE_POPULAR_OCEAN_RESORT_-_NARA_-_546979.jpg">A REFRESHMENT STAND ON THE BOARDWALK OF ISLE OF PALMS, THE POPULAR OCEAN RESORT - NARA - 546979.jpg</a> by <a href="https://en.wikipedia.org/wiki/U.S._National_Archives_and_Records_Administration">U.S. National Archives and Records Administration</a>, license: Public domain
+      </div>
+    </div>
+  </body>
+</html>

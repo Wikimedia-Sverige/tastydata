@@ -1,0 +1,18 @@
+body{
+    background-image: url("https://commons.wikimedia.org/wiki/Special:Redirect/file?wptype=file&wpvalue=Street+Dining+Lesehan+in+Kebayoran+Baru,+Jakarta.jpg");
+}
+
+mark,
+.menu,
+.btn-primary {
+    border-color: ;
+    background-color: ;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active {
+    border-color: ;
+    background-color: ;
+}

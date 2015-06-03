@@ -1,0 +1,18 @@
+body{
+    background-image: url("https://commons.wikimedia.org/wiki/Special:Redirect/file?wptype=file&wpvalue=Landsort+February+2014+35.jpg");
+}
+
+mark,
+.menu,
+.btn-primary {
+    border-color: #fab73a;
+    background-color: #fab73a;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active {
+    border-color: #E1A534;
+    background-color: #E1A534;
+}

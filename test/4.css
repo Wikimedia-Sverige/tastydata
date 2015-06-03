@@ -1,0 +1,18 @@
+body{
+    background-image: url("https://commons.wikimedia.org/wiki/Special:Redirect/file?wptype=file&wpvalue=Red+Marcato+Atlas+150+Color+pasta+machine.jpg");
+}
+
+mark,
+.menu,
+.btn-primary {
+    border-color: #cf2e00;
+    background-color: #cf2e00;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active {
+    border-color: #912000;
+    background-color: #912000;
+}

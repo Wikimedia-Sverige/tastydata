@@ -1,0 +1,18 @@
+body{
+    background-image: url("https://commons.wikimedia.org/wiki/Special:Redirect/file?wptype=file&wpvalue=YOLO+You+only+live+once.jpg");
+}
+
+mark,
+.menu,
+.btn-primary {
+    border-color: #fe782a;
+    background-color: #fe782a;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active {
+    border-color: #E56C26;
+    background-color: #E56C26;
+}

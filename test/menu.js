@@ -1,9 +1,10 @@
 var langCode = 'sv';
 var dataContent = '';
+var defaultContent = 'Sorry we couldn\'t find any images or pronunciations';
 var langQ = '';
 var popped = false;
 var clicksound = '';
-var thumbWidth = '400';
+var thumbWidth = '300';  // remember to adapt .thumb and .popover in main.css
 $( document ).ready( function() {
 	//set language by parameter
 	var uselang = getURLParameter('uselang');
@@ -30,7 +31,8 @@ $( document ).ready( function() {
 	    event.stopPropagation();
 	    console.log('popoverTrigger-click');
 	    if ( popped ) {
-		$(this).popover('toggle');
+		//$(this).popover('toggle');
+		$("[data-toggle='popover']").popover('destroy');
 		popped = false;
 		console.log('popoverTrigger-click-close');
 		return false;  // should prevent kill trigger?
@@ -38,13 +40,15 @@ $( document ).ready( function() {
 	    else {
 		var $triggerElement = $(this);
 		var entity = $(this).children().attr('its-ta-ident-ref').split('/entity/')[1];
-		dataContent = 'This has qNo ' + entity +
-			      '<br/>Sound: <property-P443>' +
-			      '<br/>Image: <property-P18>';
+		dataContent = '<property-P18><property-P443>';
 		var jqxhrP18 = getClaims( entity, 'P18', null, null );
 		var jqxhrP443 = getClaims( entity, 'P443', 'P407', langQ[langCode] );
 
 		$.when(jqxhrP18, jqxhrP443).done(function() {
+		    // if no hits then appologise
+		    if ( dataContent === '<property-P18><property-P443>') {
+			dataContent = defaultContent;
+		    }
 		    $triggerElement.attr('data-content', dataContent);
 		    popped = true;
 		    $triggerElement.popover('toggle');
@@ -111,11 +115,13 @@ function setClaim(property, value) {
 		    value.replace(' ', '_');
 	dataContent = dataContent.replace(
 	    '<property-' + property + '>',
-	    '<a href="' + descrUrl + '">' +
-		'<img class="popoverImg" src="https://commons.wikimedia.org/w/thumb.php' +
-		    '?width=' + thumbWidth +
-		    '&f=' + value + '">' +
-	    '</a>'
+	    '<div class="thumbDiv">' +
+		'<a href="' + descrUrl + '">' +
+		    '<img class="popoverImg thumb" src="https://commons.wikimedia.org/w/thumb.php' +
+			'?width=' + thumbWidth +
+			'&f=' + value + '">' +
+		'</a>' +
+	    '</div>'
 	);
     }
     else if ( property == 'P443' ){
@@ -126,12 +132,14 @@ function setClaim(property, value) {
 	clicksound = createsoundbite(contentUrl);
 	dataContent = dataContent.replace(
 	    '<property-' + property + '>',
-	    '<a href="#" onclick="clicksound.playclip()">' +
-	        '<img class="popoverImg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Gnome-mime-sound-openclipart.svg/100px-Gnome-mime-sound-openclipart.svg.png">' +
-	    '</a>' +
-	    '<a href="' + descrUrl + '">' +
-		'<img class="popoverImg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Info_Simple_bw.svg/20px-Info_Simple_bw.svg.png">' +
-	    '</a>'
+	    '<div class="soundDiv">' +
+		'<a href="#" onclick="clicksound.playclip()">' +
+		    '<img class="popoverImg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Gnome-mime-sound-openclipart.svg/100px-Gnome-mime-sound-openclipart.svg.png">' +
+		'</a>' +
+		'<a href="' + descrUrl + '">' +
+		    '<img class="popoverImg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Info_Simple_bw.svg/20px-Info_Simple_bw.svg.png">' +
+		'</a>' +
+	    '</div>'
 	);
     }
 }

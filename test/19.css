@@ -1,0 +1,18 @@
+body{
+    background-image: url("https://commons.wikimedia.org/wiki/Special:Redirect/file?wptype=file&wpvalue=Cuisine+mediterraneenne+20110709+03.jpg");
+}
+
+mark,
+.menu,
+.btn-primary {
+    border-color: #ac4648;
+    background-color: #ac4648;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active {
+    border-color: #8A383A;
+    background-color: #8A383A;
+}

@@ -1,0 +1,18 @@
+body{
+    background-image: url("https://commons.wikimedia.org/wiki/Special:Redirect/file?wptype=file&wpvalue=RotisserieChicken.jpg");
+}
+
+mark,
+.menu,
+.btn-primary {
+    border-color: #8f5147;
+    background-color: #8f5147;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active {
+    border-color: #814940;
+    background-color: #814940;
+}

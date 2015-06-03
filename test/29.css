@@ -1,0 +1,18 @@
+body{
+    background-image: url("https://commons.wikimedia.org/wiki/Special:Redirect/file?wptype=file&wpvalue=Utö+Rävstaviken+September+2012+03.jpg");
+}
+
+mark,
+.menu,
+.btn-primary {
+    border-color: #8DB3D0;
+    background-color: #8DB3D0;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active {
+    border-color: #7E9FB9;
+    background-color: #7E9FB9;
+}

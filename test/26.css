@@ -1,0 +1,18 @@
+body{
+    background-image: url("https://commons.wikimedia.org/wiki/Special:Redirect/file?wptype=file&wpvalue=Ceviche+en+Parchita+y+Cocuy.JPG");
+}
+
+mark,
+.menu,
+.btn-primary {
+    border-color: #b9281d;
+    background-color: #b9281d;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active {
+    border-color: #A6241A;
+    background-color: #A6241A;
+}

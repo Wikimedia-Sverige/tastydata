@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Silvia´s Vägbistro</title>
+    <!-- Universal Language Selector CSS -->
+    <link href="lib/jquery.uls/css/jquery.uls.css" rel="stylesheet" type="text/css"/>
+    <link href="lib/jquery.uls/css/jquery.uls.grid.css" rel="stylesheet" type="text/css"/>
+    <link href="lib/jquery.uls/css/jquery.uls.lcd.css" rel="stylesheet" type="text/css"/>
+    <!-- Bootstrap and Main CSS files -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="main.css" rel="stylesheet" type="text/css"/>
+    <!-- Menu-specific CSS that overrides Bootstrap and Main -->
+    <link href="4.css" rel="stylesheet" type="text/css">
+    <!-- Custom fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css">
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- Qlabel libraries -->
+    <script src="lib/jquery.qlabel.js" type="text/javascript"></script>
+    <!-- Universal Language Selector libraries -->
+    <script src="lib/jquery.uls/src/jquery.uls.data.js" type="text/javascript"></script>
+    <script src="lib/jquery.uls/src/jquery.uls.data.utils.js" type="text/javascript"></script>
+    <script src="lib/jquery.uls/src/jquery.uls.lcd.js" type="text/javascript"></script>
+    <script src="lib/jquery.uls/src/jquery.uls.languagefilter.js" type="text/javascript"></script>
+    <script src="lib/jquery.uls/src/jquery.uls.regionfilter.js" type="text/javascript"></script>
+    <script src="lib/jquery.uls/src/jquery.uls.core.js" type="text/javascript"></script>
+    <script src="menu.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row header">
+        <button type="button" class="btn btn-primary uls-trigger">Select language</button>
+      </div>
+      <div class="row">
+        <p class="restaurant-name"><mark>Silvia´s Vägbistro</mark></p>
+        <ul class="menu flow-text">
+          <li>
+            <p class="dish">
+              <span>Pasta Carciofi</span>
+              <span class="price">halv 60 kr, hel 100 kr</span>
+            </p>
+            <p class="ingredient">
+              <a href="#" title="Pasta" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q178">Pasta</span></a>, 
+              <a href="#" title="Carciofi" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q134609">Carciofi</span></a>, 
+              <a href="#" title="Kronärtskockskräm" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q134609">Kronärtskockskräm</span></a>, 
+              <a href="#" title="Parmesan" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q155922">Parmesan</span></a>, 
+              <a href="#" title="Olja" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q427457">Olja</span></a>, 
+              <a href="#" title="Tomater" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q23501">Tomater</span></a>
+            </p>
+          </li>
+          <li>
+            <p class="dish">
+              <a href="#" title="Porchetta" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q1106345">Porchetta</span></a>
+                <a href="#" title="Sandwich" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                  (<span class="qlabel cmt" its-ta-ident-ref="http://www.wikidata.org/entity/Q28803">Sandwich</span>)</a>
+              <span class="price">1 slider 55 kr, 2 sliders 100 kr</span>
+            </p>
+            <p class="ingredient">
+              <a href="#" title="Porchetta" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q1106345">Porchetta</span></a>
+                <a href="#" title="Rotisseriegrillad" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                  (<span class="qlabel cmt" its-ta-ident-ref="http://www.wikidata.org/entity/Q22847">Rotisseriegrillad</span>)</a>, 
+              <a href="#" title="Surdegsbröd" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q904889">Surdegsbröd</span></a>, 
+              <a href="#" title="Pesto" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q9896">Pesto</span></a>
+                <a href="#" title="Surkål" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                  (<span class="qlabel cmt" its-ta-ident-ref="http://www.wikidata.org/entity/Q154166">Surkål</span>)</a>, 
+              <a href="#" title="Örtcrème" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q207123">Örtcrème</span></a>, 
+              <a href="#" title="Tomater" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q23501">Tomater</span></a>, 
+              <a href="#" title="Ruccola" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q156884">Ruccola</span></a>
+            </p>
+          </li>
+      </ul>
+    </div>
+    <div class="row footer">
+      Adapted by <a href="http://wikimedia.se">Wikimedia Sverige</a> based on work by <a href="http://denny.vrandecic.de">Denny Vrandecic</a>. Funded by <a href="http://vinnova.se">Vinnova</a>.
+      <br />
+      Image: <a href="https://commons.wikimedia.org/wiki/File:Red_Marcato_Atlas_150_Color_pasta_machine.jpg">Red Marcato Atlas 150 Color pasta machine.jpg</a> by <a href="https://commons.wikimedia.org/w/index.php?title=User:Mudflattop&action=edit&redlink=1">Paxson Woelber</a>, license: <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.sv" rel="license">CC BY-SA 4.0</a>
+      </div>
+    </div>
+  </body>
+</html>

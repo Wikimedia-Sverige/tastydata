@@ -1,0 +1,18 @@
+body{
+    background-image: url("https://commons.wikimedia.org/wiki/Special:Redirect/file?wptype=file&wpvalue=Farm+Kartoffelfeld+Schweden.jpg");
+}
+
+mark,
+.menu,
+.btn-primary {
+    border-color: #ca4337;
+    background-color: #ca4337;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active {
+    border-color: #A2362C;
+    background-color: #A2362C;
+}

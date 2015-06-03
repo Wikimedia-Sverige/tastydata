@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Yolo</title>
+    <!-- Universal Language Selector CSS -->
+    <link href="lib/jquery.uls/css/jquery.uls.css" rel="stylesheet" type="text/css"/>
+    <link href="lib/jquery.uls/css/jquery.uls.grid.css" rel="stylesheet" type="text/css"/>
+    <link href="lib/jquery.uls/css/jquery.uls.lcd.css" rel="stylesheet" type="text/css"/>
+    <!-- Bootstrap and Main CSS files -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="main.css" rel="stylesheet" type="text/css"/>
+    <!-- Menu-specific CSS that overrides Bootstrap and Main -->
+    <link href="25.css" rel="stylesheet" type="text/css">
+    <!-- Custom fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css">
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- Qlabel libraries -->
+    <script src="lib/jquery.qlabel.js" type="text/javascript"></script>
+    <!-- Universal Language Selector libraries -->
+    <script src="lib/jquery.uls/src/jquery.uls.data.js" type="text/javascript"></script>
+    <script src="lib/jquery.uls/src/jquery.uls.data.utils.js" type="text/javascript"></script>
+    <script src="lib/jquery.uls/src/jquery.uls.lcd.js" type="text/javascript"></script>
+    <script src="lib/jquery.uls/src/jquery.uls.languagefilter.js" type="text/javascript"></script>
+    <script src="lib/jquery.uls/src/jquery.uls.regionfilter.js" type="text/javascript"></script>
+    <script src="lib/jquery.uls/src/jquery.uls.core.js" type="text/javascript"></script>
+    <script src="menu.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row header">
+        <button type="button" class="btn btn-primary uls-trigger">Select language</button>
+      </div>
+      <div class="row">
+        <p class="restaurant-name"><mark>Yolo</mark></p>
+        <ul class="menu flow-text">
+          <li>
+            <p class="dish">
+              <span>Soyaglacerad Fläsksida</span>
+              <span class="price">55 kr</span>
+            </p>
+            <p class="ingredient">
+              <a href="#" title="Fläskssida" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q191768">Fläskssida</span></a>
+                (<span>Sojasås</span>), 
+              <span>Harissa</span>, 
+              <a href="#" title="Salsa" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q249114">Salsa</span></a>
+                <a href="#" title="Mango" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                  (<span class="qlabel cmt" its-ta-ident-ref="http://www.wikidata.org/entity/Q3919027">Mango</span>)</a>
+            </p>
+          </li>
+          <li>
+            <p class="dish">
+              <span>Räktacos</span>
+              <span class="price">85 kr</span>
+            </p>
+            <p class="ingredient">
+              <a href="#" title="Taco" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q191165">Taco</span></a>, 
+              <span>Räkor</span>, 
+              <span>Sylt</span>
+                <a href="#" title="Chili" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                  (<span class="qlabel cmt" its-ta-ident-ref="http://www.wikidata.org/entity/Q165199">Chili</span>)</a>, 
+              <span>Rättika</span>
+                (<span>Syra</span>), 
+              <span>Passionsfrukt</span>, 
+              <span>Shizo</span>
+            </p>
+          </li>
+          <li>
+            <p class="dish">
+              <span>Grillad misokryddad lax</span>
+              <span class="price">115 kr</span>
+            </p>
+            <p class="ingredient">
+              <span>Lax</span>
+                <a href="#" title="Grillad" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                  (<span class="qlabel cmt" its-ta-ident-ref="http://www.wikidata.org/entity/Q264619">Grillad</span>)</a>, 
+              <span>Krydda</span>
+                (<span>Miso</span>), 
+              <span>Hjärtsallad</span>, 
+              <span>Lök</span>
+                (<span>Syrad</span>), 
+              <a href="#" title="Majonnäs" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q167893">Majonnäs</span></a>
+                (<span>Soja</span>)
+            </p>
+          </li>
+          <li>
+            <p class="dish">
+              <span>Yolos glasstrut</span>
+              <span class="price">45 kr</span>
+            </p>
+            <p class="ingredient">
+              <span>Glasstrut</span>
+            </p>
+          </li>
+      </ul>
+    </div>
+    <div class="row footer">
+      Adapted by <a href="http://wikimedia.se">Wikimedia Sverige</a> based on work by <a href="http://denny.vrandecic.de">Denny Vrandecic</a>. Funded by <a href="http://vinnova.se">Vinnova</a>.
+      <br />
+      Image: <a href="https://commons.wikimedia.org/wiki/File:YOLO_You_only_live_once.jpg">YOLO You only live once.jpg</a> by <a href="https://commons.wikimedia.org/wiki/User:CanadianDude1">CanadianDude1</a>, license: <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.sv" rel="license">CC BY-SA 3.0</a>
+      </div>
+    </div>
+  </body>
+</html>

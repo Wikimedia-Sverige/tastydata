@@ -1,0 +1,18 @@
+body{
+    background-image: url("https://commons.wikimedia.org/wiki/Special:Redirect/file?wptype=file&wpvalue=Spitz-Baguette+crude.JPG");
+}
+
+mark,
+.menu,
+.btn-primary {
+    border-color: #ceb25f;
+    background-color: #ceb25f;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active {
+    border-color: #A58E4C;
+    background-color: #A58E4C;
+}

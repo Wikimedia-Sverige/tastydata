@@ -1,18 +1,18 @@
 body{
-    background-image: url("https://commons.wikimedia.org/wiki/Special:Redirect/file?wptype=file&wpvalue=Grisblänkan+August+2013+(cropped).jpg");
+    background-image: url("https://commons.wikimedia.org/wiki/Special:Redirect/file?wptype=file&wpvalue=Saigon+Street+Corner+Dining+(at+noon).jpg");
 }
 
 mark,
 .menu,
 .btn-primary {
-    border-color: #FFdd88;
-    background-color: #FFdd88;
+    border-color: #590a0d;
+    background-color: #590a0d;
 }
 
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active,
 .btn-primary.active {
-    border-color: #fec503;
-    background-color: #fec503;
+    border-color: #47080A;
+    background-color: #47080A;
 }

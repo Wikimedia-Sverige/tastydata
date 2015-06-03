@@ -1,0 +1,18 @@
+body{
+    background-image: url("https://commons.wikimedia.org/wiki/Special:Redirect/file?wptype=file&wpvalue=Bami_mu_daeng_kiao.JPG");
+}
+
+mark,
+.menu,
+.btn-primary {
+    border-color: #066498;
+    background-color: #066498;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active {
+    border-color: #05507A;
+    background-color: #05507A;
+}

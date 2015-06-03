@@ -1,0 +1,18 @@
+body{
+    background-image: url("https://commons.wikimedia.org/wiki/Special:Redirect/file?wptype=file&wpvalue=Restaurang+Tennstopet,+2014.jpg");
+}
+
+mark,
+.menu,
+.btn-primary {
+    border-color: #a32f44;
+    background-color: #a32f44;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active {
+    border-color: #822636;
+    background-color: #822636;
+}

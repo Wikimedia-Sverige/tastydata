@@ -1,0 +1,18 @@
+body{
+    background-image: url("https://commons.wikimedia.org/wiki/Special:Redirect/file?wptype=file&wpvalue=Summer+rolls+with+peanut+sauce.jpg");
+}
+
+mark,
+.menu,
+.btn-primary {
+    border-color: #21715a;
+    background-color: #21715a;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active {
+    border-color: #1A5A48;
+    background-color: #1A5A48;
+}

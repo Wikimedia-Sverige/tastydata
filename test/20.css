@@ -1,0 +1,18 @@
+body{
+    background-image: url("https://commons.wikimedia.org/wiki/Special:Redirect/file?wptype=file&wpvalue=Mắm+từ+cá.jpg");
+}
+
+mark,
+.menu,
+.btn-primary {
+    border-color: #d9551d;
+    background-color: #d9551d;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active {
+    border-color: #C34C1A;
+    background-color: #C34C1A;
+}

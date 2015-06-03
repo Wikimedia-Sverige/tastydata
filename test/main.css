@@ -121,7 +121,7 @@ li {
 .popover {
     font-family: inherit;
     border: 0;
-    max-width: 600px;
+    max-width: 350px;
     width: auto;
 }
 
@@ -135,6 +135,11 @@ li {
 }
 .popover-content {
     color: black;
+    text-transform: initial;
+}
+
+.thumb {
+    max-height: 200px;
 }
 
 .footer {

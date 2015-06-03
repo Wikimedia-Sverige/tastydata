@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Farang</title>
+    <!-- Universal Language Selector CSS -->
+    <link href="lib/jquery.uls/css/jquery.uls.css" rel="stylesheet" type="text/css"/>
+    <link href="lib/jquery.uls/css/jquery.uls.grid.css" rel="stylesheet" type="text/css"/>
+    <link href="lib/jquery.uls/css/jquery.uls.lcd.css" rel="stylesheet" type="text/css"/>
+    <!-- Bootstrap and Main CSS files -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="main.css" rel="stylesheet" type="text/css"/>
+    <!-- Menu-specific CSS that overrides Bootstrap and Main -->
+    <link href="12.css" rel="stylesheet" type="text/css">
+    <!-- Custom fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css">
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- Qlabel libraries -->
+    <script src="lib/jquery.qlabel.js" type="text/javascript"></script>
+    <!-- Universal Language Selector libraries -->
+    <script src="lib/jquery.uls/src/jquery.uls.data.js" type="text/javascript"></script>
+    <script src="lib/jquery.uls/src/jquery.uls.data.utils.js" type="text/javascript"></script>
+    <script src="lib/jquery.uls/src/jquery.uls.lcd.js" type="text/javascript"></script>
+    <script src="lib/jquery.uls/src/jquery.uls.languagefilter.js" type="text/javascript"></script>
+    <script src="lib/jquery.uls/src/jquery.uls.regionfilter.js" type="text/javascript"></script>
+    <script src="lib/jquery.uls/src/jquery.uls.core.js" type="text/javascript"></script>
+    <script src="menu.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row header">
+        <button type="button" class="btn btn-primary uls-trigger">Select language</button>
+      </div>
+      <div class="row">
+        <p class="restaurant-name"><mark>Farang</mark></p>
+        <ul class="menu flow-text">
+          <li>
+            <p class="dish">
+              <span>Rischips med räkor</span>
+              <span class="price">55 kr</span>
+            </p>
+            <p class="ingredient">
+              <span>Rischips</span>, 
+              <span>Räkor</span>, 
+              <span>Sylt</span>
+                <a href="#" title="Chili" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                  (<span class="qlabel cmt" its-ta-ident-ref="http://www.wikidata.org/entity/Q165199">Chili</span>)</a>, 
+              <a href="#" title="Citrongräs" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q33913">Citrongräs</span></a>, 
+              <span>Böngroddar</span>
+            </p>
+          </li>
+          <li>
+            <p class="dish">
+              <span>Gris i kokoscurry</span>
+              <span class="price">75 kr</span>
+            </p>
+            <p class="ingredient">
+              <span>Gris</span>, 
+              <span>Curry</span>
+                (<span>Kokos</span>), 
+              <span>Fläsklägg</span>
+                (<span>Långkokt</span>), 
+              <span>Färs</span>, 
+              <span>Limeblad</span>, 
+              <span>Thaibasilika</span>
+            </p>
+          </li>
+          <li>
+            <p class="dish">
+              <span>Phanangan Bounty</span>
+              <span class="price">35 kr</span>
+            </p>
+            <p class="ingredient">
+              <span>Choklad</span>
+                (<span>Kristalliserad</span>), 
+              <span>Kokos</span>, 
+              <span>Kokos</span>
+                (<span>Rostad</span>), 
+              <span>Glass</span>
+                (<span>Kokos</span>)
+            </p>
+          </li>
+      </ul>
+    </div>
+    <div class="row footer">
+      Adapted by <a href="http://wikimedia.se">Wikimedia Sverige</a> based on work by <a href="http://denny.vrandecic.de">Denny Vrandecic</a>. Funded by <a href="http://vinnova.se">Vinnova</a>.
+      <br />
+      Image: <a href="https://commons.wikimedia.org/wiki/File:Street_Dining_Lesehan_in_Kebayoran_Baru,_Jakarta.jpg">Street Dining Lesehan in Kebayoran Baru, Jakarta.jpg</a> by <a href="https://www.flickr.com/people/21558311@N04">tania_huiny</a>, license: <a href="https://creativecommons.org/licenses/by/2.0/deed.sv" rel="license">CC BY 2.0</a>
+      </div>
+    </div>
+  </body>
+</html>

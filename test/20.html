@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Pho & Bun</title>
+    <!-- Universal Language Selector CSS -->
+    <link href="lib/jquery.uls/css/jquery.uls.css" rel="stylesheet" type="text/css"/>
+    <link href="lib/jquery.uls/css/jquery.uls.grid.css" rel="stylesheet" type="text/css"/>
+    <link href="lib/jquery.uls/css/jquery.uls.lcd.css" rel="stylesheet" type="text/css"/>
+    <!-- Bootstrap and Main CSS files -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="main.css" rel="stylesheet" type="text/css"/>
+    <!-- Menu-specific CSS that overrides Bootstrap and Main -->
+    <link href="20.css" rel="stylesheet" type="text/css">
+    <!-- Custom fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css">
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- Qlabel libraries -->
+    <script src="lib/jquery.qlabel.js" type="text/javascript"></script>
+    <!-- Universal Language Selector libraries -->
+    <script src="lib/jquery.uls/src/jquery.uls.data.js" type="text/javascript"></script>
+    <script src="lib/jquery.uls/src/jquery.uls.data.utils.js" type="text/javascript"></script>
+    <script src="lib/jquery.uls/src/jquery.uls.lcd.js" type="text/javascript"></script>
+    <script src="lib/jquery.uls/src/jquery.uls.languagefilter.js" type="text/javascript"></script>
+    <script src="lib/jquery.uls/src/jquery.uls.regionfilter.js" type="text/javascript"></script>
+    <script src="lib/jquery.uls/src/jquery.uls.core.js" type="text/javascript"></script>
+    <script src="menu.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row header">
+        <button type="button" class="btn btn-primary uls-trigger">Select language</button>
+      </div>
+      <div class="row">
+        <p class="restaurant-name"><mark>Pho & Bun</mark></p>
+        <ul class="menu flow-text">
+          <li>
+            <p class="dish">
+              <span>Fläskfilé</span>
+                <a href="#" title="Grillad" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                  (<span class="qlabel cmt" its-ta-ident-ref="http://www.wikidata.org/entity/Q264619">Grillad</span>)</a>
+              <span class="price">55 kr</span>
+            </p>
+            <p class="ingredient">
+              <span>Vårrulle</span>
+                (<span>Friterad</span>), 
+              <span>Sallad</span>
+            </p>
+          </li>
+          <li>
+            <p class="dish">
+              <span>Cha Nem</span>
+              <span class="price">90 kr</span>
+            </p>
+            <p class="ingredient">
+              <span>Vårrulle</span>
+                (<span>Friterad</span>), 
+              <span>Glasnudlar</span>, 
+              <a href="#" title="Kyckling" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q864693">Kyckling</span></a>, 
+              <span>Räkor</span>, 
+              <span>Crabsticks</span>, 
+              <span>Rotfrukter</span>, 
+              <span>Risnudlar</span>, 
+              <span>Jordnötter</span>
+                (<span>Rostade</span>), 
+              <span>Färska grönsaker</span>
+            </p>
+          </li>
+          <li>
+            <p class="dish">
+              <span>Nem Tuoi</span>
+              <span class="price">90 kr</span>
+            </p>
+            <p class="ingredient">
+              <span>Vårrullar</span>, 
+              <span>Räkor</span>, 
+              <a href="#" title="Mynta" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q47859">Mynta</span></a>, 
+              <span>Risnudlar</span>, 
+              <span>Gurka</span>
+            </p>
+          </li>
+          <li>
+            <p class="dish">
+              <span>Nem Tuoi</span>
+              <span class="price">90 kr</span>
+            </p>
+            <p class="ingredient">
+              <span>Vårrullar</span>, 
+              <a href="#" title="Kyckling" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q864693">Kyckling</span></a>, 
+              <a href="#" title="Mynta" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q47859">Mynta</span></a>, 
+              <span>Risnudlar</span>, 
+              <span>Gurka</span>
+            </p>
+          </li>
+          <li>
+            <p class="dish">
+              <span>Heo Nuong</span>
+              <span class="price">90 kr</span>
+            </p>
+            <p class="ingredient">
+              <span>Fläskfile</span>
+                <a href="#" title="Grillad" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                  (<span class="qlabel cmt" its-ta-ident-ref="http://www.wikidata.org/entity/Q264619">Grillad</span>)</a>, 
+              <span>Risnudlar</span>, 
+              <span>Jordnötter</span>, 
+              <span>Sallad</span>, 
+              <a href="#" title="Örter" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q207123">Örter</span></a>
+            </p>
+          </li>
+          <li>
+            <p class="dish">
+              <span>Ga Xao Sa Ot</span>
+              <span class="price">90 kr</span>
+            </p>
+            <p class="ingredient">
+              <span>Kycklingfilé</span>
+                (<span>Wokad</span>), 
+              <a href="#" title="Citrongräs" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q33913">Citrongräs</span></a>, 
+              <a href="#" title="Chili" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q165199">Chili</span></a>, 
+              <span>Ingefära</span>, 
+              <span>Gul lök</span>, 
+              <span>Färska grönsaker</span>
+            </p>
+          </li>
+      </ul>
+    </div>
+    <div class="row footer">
+      Adapted by <a href="http://wikimedia.se">Wikimedia Sverige</a> based on work by <a href="http://denny.vrandecic.de">Denny Vrandecic</a>. Funded by <a href="http://vinnova.se">Vinnova</a>.
+      <br />
+      Image: <a href="https://commons.wikimedia.org/wiki/File:Mắm_từ_cá.jpg">Mắm từ cá.jpg</a> by <a href="https://commons.wikimedia.org/wiki/User:B%C3%B9i_Th%E1%BB%A5y_%C4%90%C3%A0o_Nguy%C3%AAn">Bùi Thụy Đào Nguyên</a>, license: <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.sv" rel="license">CC BY-SA 3.0</a>
+      </div>
+    </div>
+  </body>
+</html>

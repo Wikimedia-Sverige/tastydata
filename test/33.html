@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Charlie in the tree</title>
+    <!-- Universal Language Selector CSS -->
+    <link href="lib/jquery.uls/css/jquery.uls.css" rel="stylesheet" type="text/css"/>
+    <link href="lib/jquery.uls/css/jquery.uls.grid.css" rel="stylesheet" type="text/css"/>
+    <link href="lib/jquery.uls/css/jquery.uls.lcd.css" rel="stylesheet" type="text/css"/>
+    <!-- Bootstrap and Main CSS files -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="main.css" rel="stylesheet" type="text/css"/>
+    <!-- Menu-specific CSS that overrides Bootstrap and Main -->
+    <link href="33.css" rel="stylesheet" type="text/css">
+    <!-- Custom fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css">
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- Qlabel libraries -->
+    <script src="lib/jquery.qlabel.js" type="text/javascript"></script>
+    <!-- Universal Language Selector libraries -->
+    <script src="lib/jquery.uls/src/jquery.uls.data.js" type="text/javascript"></script>
+    <script src="lib/jquery.uls/src/jquery.uls.data.utils.js" type="text/javascript"></script>
+    <script src="lib/jquery.uls/src/jquery.uls.lcd.js" type="text/javascript"></script>
+    <script src="lib/jquery.uls/src/jquery.uls.languagefilter.js" type="text/javascript"></script>
+    <script src="lib/jquery.uls/src/jquery.uls.regionfilter.js" type="text/javascript"></script>
+    <script src="lib/jquery.uls/src/jquery.uls.core.js" type="text/javascript"></script>
+    <script src="menu.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row header">
+        <button type="button" class="btn btn-primary uls-trigger">Select language</button>
+      </div>
+      <div class="row">
+        <p class="restaurant-name"><mark>Charlie in the tree</mark></p>
+        <ul class="menu flow-text">
+          <li>
+            <p class="dish">
+              <span>Vårrulle & marinerad, grillad fläskkarré</span>
+              <span class="price">55 kr</span>
+            </p>
+            <p class="ingredient">
+              <span>Vårrulle</span>, 
+              <span>Fläskkarré</span>
+                <a href="#" title="Grillad" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                  (<span class="qlabel cmt" its-ta-ident-ref="http://www.wikidata.org/entity/Q264619">Grillad</span>)</a>
+            </p>
+          </li>
+          <li>
+            <p class="dish">
+              <span>Nem rán</span>
+              <span class="price">60 kr</span>
+            </p>
+            <p class="ingredient">
+              <span>Vårrullar</span>
+                (<span>Friterade</span>), 
+              <span>Kött</span>
+            </p>
+          </li>
+          <li>
+            <p class="dish">
+              <span>Nem rán</span>
+                <a href="#" title="Vegetarisk" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                  (<span class="qlabel cmt" its-ta-ident-ref="http://www.wikidata.org/entity/Q638022">Vegetarisk</span>)</a>
+              <span class="price">60 kr</span>
+            </p>
+            <p class="ingredient">
+              <span>Vårrullar</span>
+                (<span>Friterade</span>)
+            </p>
+          </li>
+          <li>
+            <p class="dish">
+              <span>Bánh mì paté</span>
+                <a href="#" title="Kyckling" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                  (<span class="qlabel cmt" its-ta-ident-ref="http://www.wikidata.org/entity/Q864693">Kyckling</span>)</a>
+              <span class="price">70 kr</span>
+            </p>
+            <p class="ingredient">
+              <span>Bánh mì</span>, 
+              <a href="#" title="Baguette" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q208172">Baguette</span></a>
+                <a href="#" title="Vietnamesisk" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                  (<span class="qlabel cmt" its-ta-ident-ref="http://www.wikidata.org/entity/Q881">Vietnamesisk</span>)</a>
+            </p>
+          </li>
+          <li>
+            <p class="dish">
+              <span>Bánh mì paté</span>
+              <span class="price">70 kr</span>
+            </p>
+            <p class="ingredient">
+              <span>Bánh mì</span>, 
+              <a href="#" title="Baguette" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q208172">Baguette</span></a>
+                <a href="#" title="Vietnamesisk" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                  (<span class="qlabel cmt" its-ta-ident-ref="http://www.wikidata.org/entity/Q881">Vietnamesisk</span>)</a>, 
+              <span>Fläskkött</span>
+            </p>
+          </li>
+          <li>
+            <p class="dish">
+              <span>Bánh mì paté</span>
+              <span class="price">70 kr</span>
+            </p>
+            <p class="ingredient">
+              <span>Bánh mì</span>, 
+              <a href="#" title="Baguette" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q208172">Baguette</span></a>
+                <a href="#" title="Vietnamesisk" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                  (<span class="qlabel cmt" its-ta-ident-ref="http://www.wikidata.org/entity/Q881">Vietnamesisk</span>)</a>, 
+              <a href="#" title="Tofu" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q177378">Tofu</span></a>
+            </p>
+          </li>
+          <li>
+            <p class="dish">
+              <span>Cơm rau xào</span>
+              <span class="price">80 kr</span>
+            </p>
+            <p class="ingredient">
+              <span>Grönsaker</span>
+                (<span>Wokade</span>), 
+              <span>Ris</span>, 
+              <a href="#" title="Tofu" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q177378">Tofu</span></a>
+            </p>
+          </li>
+          <li>
+            <p class="dish">
+              <span>Cơm gà xào</span>
+              <span class="price">80 kr</span>
+            </p>
+            <p class="ingredient">
+              <a href="#" title="Kyckling" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q864693">Kyckling</span></a>
+                (<span>Wokad</span>), 
+              <span>Grönsaker</span>, 
+              <span>Ris</span>
+            </p>
+          </li>
+          <li>
+            <p class="dish">
+              <span>Bún nem</span>
+              <span class="price">90 kr</span>
+            </p>
+            <p class="ingredient">
+              <span>Vårrullar</span>
+                (<span>Friterade</span>), 
+              <span>Kött</span>, 
+              <span>Nudlar</span>, 
+              <span>Sallad</span>, 
+              <span>Fisksås</span>
+            </p>
+          </li>
+          <li>
+            <p class="dish">
+              <span>Bún nem</span>
+                <a href="#" title="Vegetarisk" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                  (<span class="qlabel cmt" its-ta-ident-ref="http://www.wikidata.org/entity/Q638022">Vegetarisk</span>)</a>
+              <span class="price">90 kr</span>
+            </p>
+            <p class="ingredient">
+              <span>Vårrullar</span>
+                (<span>Friterade</span>), 
+              <span>Nudlar</span>, 
+              <span>Sallad</span>, 
+              <span>Fisksås</span>
+            </p>
+          </li>
+          <li>
+            <p class="dish">
+              <span>Bún thịt nướng</span>
+              <span class="price">90 kr</span>
+            </p>
+            <p class="ingredient">
+              <span>Fläskkarré</span>
+                <a href="#" title="Grillad" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                  (<span class="qlabel cmt" its-ta-ident-ref="http://www.wikidata.org/entity/Q264619">Grillad</span>)</a>, 
+              <span>Nudlar</span>, 
+              <span>Sallad</span>, 
+              <span>Fisksås</span>
+            </p>
+          </li>
+          <li>
+            <p class="dish">
+              <span>Mangopannacotta</span>
+              <span class="price">40 kr</span>
+            </p>
+            <p class="ingredient">
+              <span>Pannacotta</span>, 
+              <a href="#" title="Mango" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q3919027">Mango</span></a>
+            </p>
+          </li>
+      </ul>
+    </div>
+    <div class="row footer">
+      Adapted by <a href="http://wikimedia.se">Wikimedia Sverige</a> based on work by <a href="http://denny.vrandecic.de">Denny Vrandecic</a>. Funded by <a href="http://vinnova.se">Vinnova</a>.
+      <br />
+      Image: <a href="https://commons.wikimedia.org/wiki/File:Summer_rolls_with_peanut_sauce.jpg">Summer rolls with peanut sauce.jpg</a> by Zoe Shuttleworth, license: <a href="https://creativecommons.org/licenses/by/2.0/deed.sv" rel="license">CC BY 2.0</a>
+      </div>
+    </div>
+  </body>
+</html>

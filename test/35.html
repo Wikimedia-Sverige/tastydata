@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Melanders Fisk – A la carte</title>
+    <!-- Universal Language Selector CSS -->
+    <link href="lib/jquery.uls/css/jquery.uls.css" rel="stylesheet" type="text/css"/>
+    <link href="lib/jquery.uls/css/jquery.uls.grid.css" rel="stylesheet" type="text/css"/>
+    <link href="lib/jquery.uls/css/jquery.uls.lcd.css" rel="stylesheet" type="text/css"/>
+    <!-- Bootstrap and Main CSS files -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="main.css" rel="stylesheet" type="text/css"/>
+    <!-- Menu-specific CSS that overrides Bootstrap and Main -->
+    <link href="35.css" rel="stylesheet" type="text/css">
+    <!-- Custom fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css">
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- Qlabel libraries -->
+    <script src="lib/jquery.qlabel.js" type="text/javascript"></script>
+    <!-- Universal Language Selector libraries -->
+    <script src="lib/jquery.uls/src/jquery.uls.data.js" type="text/javascript"></script>
+    <script src="lib/jquery.uls/src/jquery.uls.data.utils.js" type="text/javascript"></script>
+    <script src="lib/jquery.uls/src/jquery.uls.lcd.js" type="text/javascript"></script>
+    <script src="lib/jquery.uls/src/jquery.uls.languagefilter.js" type="text/javascript"></script>
+    <script src="lib/jquery.uls/src/jquery.uls.regionfilter.js" type="text/javascript"></script>
+    <script src="lib/jquery.uls/src/jquery.uls.core.js" type="text/javascript"></script>
+    <script src="menu.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row header">
+        <button type="button" class="btn btn-primary uls-trigger">Select language</button>
+      </div>
+      <div class="row">
+        <p class="restaurant-name"><mark>Melanders Fisk – A la carte</mark></p>
+        <ul class="menu flow-text">
+          <li>
+            <p class="dish">
+              <span>Gubbröra på knäcke,</span>
+              <span class="price">98 kr</span>
+            </p>
+            <p class="ingredient">
+              <span>Gubbröra</span>, 
+              <span>Knäckebröd</span>
+            </p>
+          </li>
+          <li>
+            <p class="dish">
+              <span>Calvisius caviar classic 10 gr & 1 glas Taittinger</span>
+              <span class="price">255 kr</span>
+            </p>
+            <p class="ingredient">
+              <span>Caviar</span>, 
+              <span>Tattinger</span>
+            </p>
+          </li>
+          <li>
+            <p class="dish">
+              <span>Toast Skagen</span>
+              <span class="price">165 kr</span>
+            </p>
+            <p class="ingredient">
+            </p>
+          </li>
+          <li>
+            <p class="dish">
+              <a href="#" title="Torsk" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q199788">Torsk</span></a>
+                (<span>Friterad</span>)
+              <span class="price">175 kr</span>
+            </p>
+            <p class="ingredient">
+              <span>Remouladsås</span>, 
+              <span>Pommes</span>
+            </p>
+          </li>
+          <li>
+            <p class="dish">
+              <span>Moules Frites</span>
+              <span class="price">180 kr</span>
+            </p>
+            <p class="ingredient">
+            </p>
+          </li>
+          <li>
+            <p class="dish">
+              <span>Viltköttbullar</span>
+              <span class="price">180 kr</span>
+            </p>
+            <p class="ingredient">
+              <span>Köttbullar</span>
+                (<span>Vilt</span>), 
+              <span>Gräddsås</span>, 
+              <span>Färskpotatis</span>, 
+              <span>Rårörda lingon</span>
+            </p>
+          </li>
+          <li>
+            <p class="dish">
+              <span>Rimmad lax med dillstuvad potatis</span>
+              <span class="price">190 kr</span>
+            </p>
+            <p class="ingredient">
+              <span>Lax</span>
+                (<span>Rimmad</span>), 
+              <span>Potatis</span>
+                (<span>Stuvning</span>), 
+              <span>Dill</span>
+            </p>
+          </li>
+          <li>
+            <p class="dish">
+              <span>Näve räkor med tillbehör</span>
+              <span class="price">195 kr</span>
+            </p>
+            <p class="ingredient">
+              <span>Räkor</span>
+            </p>
+          </li>
+          <li>
+            <p class="dish">
+              <span>Halv Amerikansk hummer med tillbehör</span>
+              <span class="price">195 kr</span>
+            </p>
+            <p class="ingredient">
+              <span>Amerikansk hummer</span>
+                (<span>Halv</span>)
+            </p>
+          </li>
+          <li>
+            <p class="dish">
+              <a href="#" title="Torsk" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q199788">Torsk</span></a>
+                (<span>Västerhavet</span>)
+              <span class="price">240 kr</span>
+            </p>
+            <p class="ingredient">
+              <a href="#" title="Torsk" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                <span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/Q199788">Torsk</span></a>
+                (<span>Kokt</span>), 
+              <span>Smör</span>, 
+              <span>Pepparrot</span>
+            </p>
+          </li>
+          <li>
+            <p class="dish">
+              <span>Delikatesstallrik</span>
+              <span class="price">270 kr</span>
+            </p>
+            <p class="ingredient">
+            </p>
+          </li>
+          <li>
+            <p class="dish">
+              <span>Skaldjursplateau</span>
+              <span class="price">450 kr</span>
+            </p>
+            <p class="ingredient">
+            </p>
+          </li>
+          <li>
+            <p class="dish">
+              <span>Ostron Fine de clair</span>
+                (<span>Frankrike</span>)
+              <span class="price">25 kr/st</span>
+            </p>
+            <p class="ingredient">
+              <span>Ostron</span>
+                (<span>Fine de clair</span>)
+            </p>
+          </li>
+          <li>
+            <p class="dish">
+              <span>Ostron Ostra Regal</span>
+                (<span>Frankrike</span>)
+              <span class="price">28 kr/st</span>
+            </p>
+            <p class="ingredient">
+              <span>Ostron</span>
+            </p>
+          </li>
+          <li>
+            <p class="dish">
+              <span>Ostron Gillardeau</span>
+                (<span>Frankrike</span>)
+              <span class="price">33 kr/st</span>
+            </p>
+            <p class="ingredient">
+              <span>Ostron</span>
+            </p>
+          </li>
+          <li>
+            <p class="dish">
+              <span>Ostron Belon</span>
+                (<span>Sverige</span>)
+              <span class="price">45 kr/st</span>
+            </p>
+            <p class="ingredient">
+              <span>Ostron</span>
+            </p>
+          </li>
+          <li>
+            <p class="dish">
+              <span>Färska Jordgubbar</span>
+              <span class="price">75 kr</span>
+            </p>
+            <p class="ingredient">
+              <span>Jordgubbar</span>, 
+              <span>Socker</span>
+                <a href="#" title="Lime" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
+                  (<span class="qlabel cmt" its-ta-ident-ref="http://www.wikidata.org/entity/Q13195">Lime</span>)</a>
+            </p>
+          </li>
+      </ul>
+    </div>
+    <div class="row footer">
+      Adapted by <a href="http://wikimedia.se">Wikimedia Sverige</a> based on work by <a href="http://denny.vrandecic.de">Denny Vrandecic</a>. Funded by <a href="http://vinnova.se">Vinnova</a>.
+      <br />
+      Image: <a href="https://commons.wikimedia.org/wiki/File:Curingsalmon.jpg">Curingsalmon.jpg</a> by <a href="https://commons.wikimedia.org/wiki/User:Myrtti">Miia Ranta</a>, license: <a href="https://creativecommons.org/licenses/by-sa/2.0/deed.sv" rel="license">CC BY-SA 2.0</a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+body{
+    background-image: url("https://commons.wikimedia.org/wiki/Special:Redirect/file?wptype=file&wpvalue=Tapas+in+einer+spanischen+Bar.jpg");
+}
+
+mark,
+.menu,
+.btn-primary {
+    border-color: #e16e25;
+    background-color: #e16e25;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active {
+    border-color: #CA6321;
+    background-color: #CA6321;
+}

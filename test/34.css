@@ -1,0 +1,18 @@
+body{
+    background-image: url("https://commons.wikimedia.org/wiki/Special:Redirect/file?wptype=file&wpvalue=Calamares+fritos+11-2012+-+juantiagues.jpg");
+}
+
+mark,
+.menu,
+.btn-primary {
+    border-color: #631304;
+    background-color: #631304;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active {
+    border-color: #4F0F03;
+    background-color: #4F0F03;
+}

@@ -1,0 +1,18 @@
+body{
+    background-image: url("https://commons.wikimedia.org/wiki/Special:Redirect/file?wptype=file&wpvalue=A+REFRESHMENT+STAND+ON+THE+BOARDWALK+OF+ISLE+OF+PALMS,+THE+POPULAR+OCEAN+RESORT+-+NARA+-+546979.jpg");
+}
+
+mark,
+.menu,
+.btn-primary {
+    border-color: #c39675;
+    background-color: #c39675;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active {
+    border-color: #9C785E;
+    background-color: #9C785E;
+}
