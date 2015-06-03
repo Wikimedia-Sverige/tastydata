@@ -138,6 +138,7 @@ li {
     color: black;
     text-transform: initial;
     display: inline;
+    padding: none;
 }
 
 .thumb {
