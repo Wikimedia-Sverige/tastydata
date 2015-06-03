@@ -30,7 +30,8 @@ $( document ).ready( function() {
 	    event.stopPropagation();
 	    console.log('popoverTrigger-click');
 	    if ( popped ) {
-		$(this).popover('toggle');
+		//$(this).popover('toggle');
+		$("[data-toggle='popover']").popover('destroy');
 		popped = false;
 		console.log('popoverTrigger-click-close');
 		return false;  // should prevent kill trigger?
