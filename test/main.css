@@ -122,9 +122,8 @@ li {
     /* could simply try centering it on the page */
     font-family: inherit;
     border: 0;
-    width: 400px;
-    /*max-width: 400px;
-    width: auto;*/
+    max-width: 400px;
+    width: auto;
 }
 
 .popover .arrow {
@@ -142,7 +141,11 @@ li {
 }
 
 .thumb {
-    max-height: 100px;
+    max-height: 200px;
+}
+
+.thumbDiv {
+    display: inline;
 }
 
 .soundDiv {
