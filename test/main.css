@@ -149,6 +149,10 @@ li {
     display: inline;
 }
 
+.infoIcon {
+    padding-top: 5px;
+}
+
 .soundDiv {
     width: 50px;
     display: inline-block;
