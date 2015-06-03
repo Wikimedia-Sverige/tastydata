@@ -52,7 +52,7 @@ def run(dataFile, matchesFile, directory=u'.'):
     global matched, unmatched
     matched = list(set(matched))
     unmatched = list(set(unmatched))
-    f = codecs.open(u'matchinfo.csv' % directory, 'w', 'utf8')
+    f = codecs.open(u'matchinfo.csv', 'w', 'utf8')
     f.write(u'%s\n' % '|'.join(matched))
     f.write(u'%s' % '|'.join(unmatched))
     f.close()
@@ -172,8 +172,7 @@ def addQlabel(entity, indent):
         matched.append(qMatches[entity])
         return u'''
 %s<a href="#" title="%s" data-toggle="popover" data-trigger="manual" data-placement="auto" data-content="Data not loaded yet :/" data-html="true">
-%s<span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/%s">%s</span>
-%s</a>''' % (i, entity, (indent+1)*block, qMatches[entity], entity, i)
+%s<span class="qlabel" its-ta-ident-ref="http://www.wikidata.org/entity/%s">%s</span></a>''' % (i, entity, (indent+1)*block, qMatches[entity], entity)
     else:
         unmatched.append(entity)
         return u'''
