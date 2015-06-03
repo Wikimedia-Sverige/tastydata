@@ -119,6 +119,7 @@ li {
 }
 
 .popover {
+    /* could simply try centering it on the page */
     font-family: inherit;
     border: 0;
     max-width: 400px;
@@ -140,7 +141,7 @@ li {
 }
 
 .thumb {
-    max-height: 200px;
+    max-height: 100px;
 }
 
 .soundDiv {
