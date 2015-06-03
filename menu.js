@@ -1,5 +1,6 @@
 var langCode = 'sv';
 var dataContent = '';
+var defaultContent = 'Sorry we couldn\'t find any images or pronunciations';
 var langQ = '';
 var popped = false;
 var clicksound = '';
@@ -39,13 +40,15 @@ $( document ).ready( function() {
 	    else {
 		var $triggerElement = $(this);
 		var entity = $(this).children().attr('its-ta-ident-ref').split('/entity/')[1];
-		dataContent = 'This has qNo ' + entity +
-			      '<br/>Sound: <property-P443>' +
-			      '<br/>Image: <property-P18>';
+		dataContent = '<property-P18><property-P443>';
 		var jqxhrP18 = getClaims( entity, 'P18', null, null );
 		var jqxhrP443 = getClaims( entity, 'P443', 'P407', langQ[langCode] );
 
 		$.when(jqxhrP18, jqxhrP443).done(function() {
+		    // if no hits then appologise
+		    if ( dataContent === '<property-P18><property-P443>') {
+			dataContent = defaultContent;
+		    }
 		    $triggerElement.attr('data-content', dataContent);
 		    popped = true;
 		    $triggerElement.popover('toggle');
