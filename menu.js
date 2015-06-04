@@ -52,12 +52,6 @@ $( document ).ready( function() {
 		    $triggerElement.attr('data-content', dataContent);
 		    popped = true;
 		    $triggerElement.popover('toggle');
-		    
-		    $('[data-toggle=popover]').on('shown.bs.popover', function () {
-			$activePopover = $triggerElement.siblings('.popover').eq(0);
-			console.log($activePopover.is_on_screen());
-			//$('.popover').css('top',parseInt($('.popover').css('top')) + 22 + 'px')
-		    });
 		});
 	    }
 	});
@@ -217,24 +211,4 @@ function createsoundbite(sound){
 	    }
 	};
     }
-    
 }
-
-$.fn.is_on_screen = function(){
-    var win = $(window);
-    var viewport = {
-	top : win.scrollTop(),
-	left : win.scrollLeft()
-    };
-    viewport.right = viewport.left + win.width();
-    viewport.bottom = viewport.top + win.height();
- 
-    var bounds = this.offset();
-    bounds.right = bounds.left + $('.popoverImg.thumb').clientWidth();
-    bounds.bottom = bounds.top + $('.popoverImg.thumb').clientHeight();
-    console.log(viewport);
-    console.log(bounds);
-    console.log($('.popoverImg.thumb').clientWidth(), $('.popoverImg.thumb').clientHeight());
- 
-    return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
-};
