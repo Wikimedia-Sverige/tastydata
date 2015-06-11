@@ -7,3 +7,5 @@ The menues will be using qlabel (https://github.com/googleknowledge/qlabel/) for
 Translations will be promoted through the Wikidata Menu Challenge. https://www.wikidata.org/wiki/Wikidata:Menu_Challenge
 
 Layout and design was primarilly done by MidasN in [MidasN/WikimediaTastydata](https://github.com/MidasN/WikimediaTastydata)
+
+Project wikipage at https://se.wikimedia.org/wiki/Projekt:Restauranger_och_Wikidata_2015
