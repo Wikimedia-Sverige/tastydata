@@ -217,6 +217,7 @@ def intro(name, no):
     <div class="container-fluid">
       <div class="row header">
         <button type="button" class="btn btn-primary uls-trigger">Select language</button>
+        <button type="button" class="btn btn-primary" style="float:right" onclick="window.location.href='./index.html'">Home</button>
       </div>
       <div class="row">''' % (name, no)
 
