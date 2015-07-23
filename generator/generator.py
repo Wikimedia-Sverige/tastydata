@@ -82,9 +82,10 @@ def makeRestaurant(no, restaurantData, directory):
     txt += u'''
 %s</ul>
 %s</div>
+%s</div>
 %s<div class="row footer">
 %sAdapted by <a href="http://wikimedia.se">Wikimedia Sverige</a> based on work by <a href="http://denny.vrandecic.de">Denny Vrandecic</a>. Funded by <a href="http://vinnova.se">Vinnova</a>.
-%s<br />''' % (3*block, 2*block, 2*block, 3*block, 3*block)
+%s<br />''' % (4*block, 3*block, 2*block, 2*block, 3*block, 3*block)
 
     # add imageref
     txt += u'''
@@ -224,7 +225,6 @@ def intro(name, no):
 
 def outro():
     return u'''
-      </div>
     </div>
   </body>
 </html>'''
@@ -238,6 +238,7 @@ def makeCss(colour, active_colour, img):
 
 mark,
 .menu,
+.footer,
 .btn-primary {
     border-color: %s;
     background-color: %s;
@@ -281,18 +282,18 @@ def makeIndex(index):
 
     for i in range(0, len(index)):
         txt += u'''
-        <li>
-          <p class="dish"><a href="%r.html">%r. %s</a></p>
-        </li>''' % (i+1, i+1, index[i])
+          <li>
+            <p class="dish"><a href="%r.html">%r. %s</a></p>
+          </li>''' % (i+1, i+1, index[i])
 
     txt += u'''
-      </ul>
+        </ul>
+      </div>
     </div>
     <div class="row footer">
       A project by <a href="http://wikimedia.se">Wikimedia Sverige</a>. Funded by <a href="http://vinnova.se">Vinnova</a>.
       <br />
       Image: <a href="https://commons.wikimedia.org/wiki/File:Wikidata_tastydata.svg">Wikidata tastydata</a> by <a href="https://commons.wikimedia.org/wiki/User:ArildV">Offnfopt</a>, license: <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.sv" rel="license">CC0</a>
-      </div>
     </div>
   </body>
 </html>'''

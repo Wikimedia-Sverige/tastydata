@@ -3,6 +3,7 @@ body{
 }
 
 mark,
-.menu {
+.menu,
+.footer {
     background-color: #4d4d4d;
 }
