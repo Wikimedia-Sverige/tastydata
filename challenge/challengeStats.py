@@ -10,6 +10,8 @@ import wdq
 import json
 from getpass import getpass
 
+wdApi = None
+
 
 def getLabels(entities, dDict=None, redirects=None, lang=None):
     '''
@@ -201,6 +203,8 @@ def makeMinistats(outinfo, ministats, total):
 
 def raw_encoded_input(txt):
     '''query for input and deal with the encoding, whatever it is'''
+    import sys
+    import locale
     return raw_input(txt).decode(sys.stdin.encoding or
                                  locale.getpreferredencoding(True))
 
@@ -210,109 +214,114 @@ def list_diff(a, b):
     b = set(b)
     return [aa for aa in a if aa not in b]
 
-# Check if running from config and set up Wikidata connection
-# load config.py if present otherwise request input
-site = 'https://www.wikidata.org/w/api.php'
-scriptidentify = 'TastyData/1.0'
-fromConf = False
-try:
-    import config
-    fromConf = True
-    wdApi = wikiApi.WikiDataApi.setUpApi(user=config.username,
-                                         password=config.password,
-                                         site=site,
-                                         scriptidentify=scriptidentify)
-except ImportError:
-    # needed for input_raw
-    import sys
-    import locale
-    user = raw_encoded_input('Username: ')
-    wdApi = wikiApi.WikiDataApi.setUpApi(user=user,
-                                         password=getpass(),
-                                         site=site,
-                                         scriptidentify=scriptidentify)
 
-# input params
-entities_file = u'entities.json'
-page_file = u'page.txt'
-if fromConf:
-    entities_file = u'%s%s' % (config.path, entities_file)
-    page_file = u'%s%s' % (config.path, page_file)
-f = open(entities_file, 'r')
-entities = json.load(f)
-f.close()
-f = open(page_file, 'r')
-page = f.read()
-f.close()
+def run():
+    # Check if running from config and set up Wikidata connection
+    # load config.py if present otherwise request input
+    site = 'https://www.wikidata.org/w/api.php'
+    scriptidentify = 'TastyData/1.0'
+    fromConf = False
+    global wdApi
+    try:
+        import config
+        fromConf = True
+        wdApi = wikiApi.WikiDataApi.setUpApi(user=config.username,
+                                             password=config.password,
+                                             site=site,
+                                             scriptidentify=scriptidentify)
+    except ImportError:
+        # needed for input_raw
+        user = raw_encoded_input('Username: ')
+        wdApi = wikiApi.WikiDataApi.setUpApi(user=user,
+                                             password=getpass(),
+                                             site=site,
+                                             scriptidentify=scriptidentify)
 
-# output page
-if fromConf:
-    outwikiPage = config.outputPage
-else:
-    outwikiPage = raw_encoded_input('Wikidata page: ')
+    # input params
+    entities_file = u'entities.json'
+    page_file = u'page.txt'
+    if fromConf:
+        entities_file = u'%s%s' % (config.path, entities_file)
+        page_file = u'%s%s' % (config.path, page_file)
+    f = open(entities_file, 'r')
+    entities = json.load(f)
+    f.close()
+    f = open(page_file, 'r')
+    page = f.read()
+    f.close()
 
-# get all labels
-lDict, redirects = getLabels(entities)
+    # output page
+    if fromConf:
+        outwikiPage = config.outputPage
+    else:
+        outwikiPage = raw_encoded_input('Wikidata page: ')
 
-# invert
-allLang = {}
-for k, v in lDict.iteritems():
-    for lang in v:
-        if lang in allLang.keys():
-            allLang[lang].append(k)
-        else:
-            allLang[lang] = [k, ]
+    # get all labels
+    lDict, redirects = getLabels(entities)
 
-# deal with redirects until T100703 is resolved (and implemented in wdq)
-reEntities = entities[:]  # clone
-for r_from, r_to in redirects.iteritems():
-    reEntities.remove(r_from)
-    reEntities.append(r_to)
+    # invert
+    allLang = {}
+    for k, v in lDict.iteritems():
+        for lang in v:
+            if lang in allLang.keys():
+                allLang[lang].append(k)
+            else:
+                allLang[lang] = [k, ]
 
-# claims
-wdqApi = wdq.WDQApi.setUpApi(user='TastyData')
-p18claims = wdqApi.getIdsWithClaim(reEntities, 'P18')
-p443claims = wdqApi.getIdsWithClaim(reEntities, 'P443')
+    # deal with redirects until T100703 is resolved (and implemented in wdq)
+    reEntities = entities[:]  # clone
+    for r_from, r_to in redirects.iteritems():
+        reEntities.remove(r_from)
+        reEntities.append(r_to)
 
-# process P443
-p443langs = {}
-for entity in p443claims:
-    # P407 is the qualifier for language
-    p443langs[entity] = getClaimQualifier(entity, 'P443', 'P407')
+    # claims
+    wdqApi = wdq.WDQApi.setUpApi(user='TastyData')
+    p18claims = wdqApi.getIdsWithClaim(reEntities, 'P18')
+    p443claims = wdqApi.getIdsWithClaim(reEntities, 'P443')
 
-# convert lang Q-numbers to text to get around Lua memory error
-langItems = []
-for e, vals in p443langs.iteritems():
-    langItems += vals
-langItems = list(set(langItems))  # remove duplicates
-if '' in langItems:  # these are dealt with manually
-    langItems.remove('')
-langLabels_en, dummy = getLabels(langItems, lang='en')
+    # process P443
+    p443langs = {}
+    for entity in p443claims:
+        # P407 is the qualifier for language
+        p443langs[entity] = getClaimQualifier(entity, 'P443', 'P407')
 
-# output
-outinfo = {}
-outinfo['lables'] = allLang
-outinfo['images'] = p18claims
-outinfo['sounds'] = p443langs
-ministats = {'images': len(p18claims),
-             'sounds': len(p443claims),
-             'items': len(entities)}
-makeMinistats(outinfo, ministats, len(entities))
-wdApi.editText(outwikiPage,
-               page.replace(u'{{{title}}}', u'Current statistics')
-                   .replace(u'{{{text}}}', makeTable(outinfo,
-                                                     entities,
-                                                     redirects,
-                                                     langLabels_en,
-                                                     ministats)
-                            ),
-               u'Updated statistics',
-               minor=True,
-               bot=False,
-               userassert=None)
-print u'langs: %r, labels: %r, images: %r, sounds: %r, entities: %r' % (
-      ministats['totalLang'],
-      ministats['totalLabel'],
-      ministats['images'],
-      ministats['sounds'],
-      ministats['items'])
+    # convert lang Q-numbers to text to get around Lua memory error
+    langItems = []
+    for e, vals in p443langs.iteritems():
+        langItems += vals
+    langItems = list(set(langItems))  # remove duplicates
+    if '' in langItems:  # these are dealt with manually
+        langItems.remove('')
+    langLabels_en, dummy = getLabels(langItems, lang='en')
+
+    # output
+    outinfo = {}
+    outinfo['lables'] = allLang
+    outinfo['images'] = p18claims
+    outinfo['sounds'] = p443langs
+    ministats = {'images': len(p18claims),
+                 'sounds': len(p443claims),
+                 'items': len(entities)}
+    makeMinistats(outinfo, ministats, len(entities))
+    wdApi.editText(outwikiPage,
+                   page.replace(u'{{{title}}}', u'Current statistics')
+                       .replace(u'{{{text}}}', makeTable(outinfo,
+                                                         entities,
+                                                         redirects,
+                                                         langLabels_en,
+                                                         ministats)
+                                ),
+                   u'Updated statistics',
+                   minor=True,
+                   bot=False,
+                   userassert=None)
+    print u'langs: %r, labels: %r, images: %r, sounds: %r, entities: %r' % (
+          ministats['totalLang'],
+          ministats['totalLabel'],
+          ministats['images'],
+          ministats['sounds'],
+          ministats['items'])
+
+if __name__ == "__main__":
+    run()
+# EoF
