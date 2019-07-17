@@ -84,7 +84,7 @@ def makeRestaurant(no, restaurantData, directory):
 %s</div>
 %s</div>
 %s<div class="row footer">
-%sAdapted by <a href="http://wikimedia.se">Wikimedia Sverige</a> based on work by <a href="http://denny.vrandecic.de">Denny Vrandecic</a>. Funded by <a href="http://vinnova.se">Vinnova</a>.
+%sAdapted by <a href="http://wikimedia.se">Wikimedia Sverige</a> based on work by <a href="http://denny.vrandecic.de">Denny Vrandecic</a>. Funded by <a href="http://vinnova.se">Vinnova</a>. <a href="https://github.com/Wikimedia-Sverige/tastydata">Source on Github</a>.
 %s<br />''' % (4*block, 3*block, 2*block, 2*block, 3*block, 3*block)
 
     # add imageref
